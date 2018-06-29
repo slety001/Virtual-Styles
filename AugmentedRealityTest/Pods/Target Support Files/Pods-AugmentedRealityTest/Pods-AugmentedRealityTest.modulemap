@@ -1,0 +1,6 @@
+framework module Pods_AugmentedRealityTest {
+  umbrella header "Pods-AugmentedRealityTest-umbrella.h"
+
+  export *
+  module * { export * }
+}

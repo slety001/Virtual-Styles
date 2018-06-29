@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="HatModel" representedClassName=".HatModel" syncable="YES" codeGenerationType="class">
+        <attribute name="hatID" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="modelName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VSUser" inverseName="hatModels" inverseEntity="VSUser" syncable="YES"/>
+    </entity>
+    <entity name="PetModel" representedClassName=".PetModel" syncable="YES" codeGenerationType="class">
+        <attribute name="petID" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="petName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VSUser" inverseName="petModels" inverseEntity="VSUser" syncable="YES"/>
+    </entity>
+    <entity name="StatetmentModel" representedClassName=".StatetmentModel" syncable="YES" codeGenerationType="class">
+        <attribute name="statetmentID" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="statetmentName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="sUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="VSUser" inverseName="statetmentModels" inverseEntity="VSUser" syncable="YES"/>
+    </entity>
+    <entity name="VSUser" representedClassName=".VSUser" syncable="YES" codeGenerationType="class">
+        <attribute name="userID" optional="YES" attributeType="UUID" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="userName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hatModels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="HatModel" inverseName="sUser" inverseEntity="HatModel" syncable="YES"/>
+        <relationship name="petModels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="PetModel" inverseName="sUser" inverseEntity="PetModel" syncable="YES"/>
+        <relationship name="statetmentModels" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="StatetmentModel" inverseName="sUser" inverseEntity="StatetmentModel" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="HatModel" positionX="-45" positionY="2" width="128" height="90"/>
+        <element name="PetModel" positionX="-47" positionY="99" width="128" height="90"/>
+        <element name="StatetmentModel" positionX="-45" positionY="-106" width="128" height="90"/>
+        <element name="VSUser" positionX="-297" positionY="-10" width="128" height="120"/>
+    </elements>
+</model>
