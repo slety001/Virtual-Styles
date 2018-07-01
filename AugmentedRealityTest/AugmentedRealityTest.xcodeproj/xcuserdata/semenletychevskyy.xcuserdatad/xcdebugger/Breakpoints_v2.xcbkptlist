@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AugmentedRealityTest/SelfViewController.swift"
-            timestampString = "550998179.127738"
+            timestampString = "552085702.3846999"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "15"
@@ -22,31 +22,31 @@
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AugmentedRealityTest.SelfViewController.viewModeARSCN.getter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.ARSCNView&gt;"
+                  symbolName = "AugmentedRealityTest.SelfViewController.__deallocating_deinit"
                   moduleName = "AugmentedRealityTest"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/semenletychevskyy/Documents/gitresVSAR/vsar/AugmentedRealityTest/AugmentedRealityTest/SelfViewController.swift"
-                  timestampString = "551403996.0072351"
+                  urlString = "file:///Users/semenletychevskyy/Documents/virtualstylesAR/AugmentedRealityTest/AugmentedRealityTest/SelfViewController.swift"
+                  timestampString = "552101909.464782"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "79">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "AugmentedRealityTest.SelfViewController.viewModeARSCN.setter : weak Swift.ImplicitlyUnwrappedOptional&lt;__ObjC.ARSCNView&gt;"
+                  symbolName = "AugmentedRealityTest.SelfViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; AugmentedRealityTest.SelfViewController"
                   moduleName = "AugmentedRealityTest"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/semenletychevskyy/Documents/gitresVSAR/vsar/AugmentedRealityTest/AugmentedRealityTest/SelfViewController.swift"
-                  timestampString = "551403996.01148"
+                  urlString = "file:///Users/semenletychevskyy/Documents/virtualstylesAR/AugmentedRealityTest/AugmentedRealityTest/SelfViewController.swift"
+                  timestampString = "552101909.46982"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "90">
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "12">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -55,13 +55,28 @@
                   symbolName = "AugmentedRealityTest.SelfViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__ObjC.Bundle&gt;) -&gt; AugmentedRealityTest.SelfViewController"
                   moduleName = "AugmentedRealityTest"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/semenletychevskyy/Documents/gitresVSAR/vsar/AugmentedRealityTest/AugmentedRealityTest/SelfViewController.swift"
-                  timestampString = "551403996.015317"
+                  urlString = "file:///Users/semenletychevskyy/Documents/virtualstylesAR/AugmentedRealityTest/AugmentedRealityTest/SelfViewController.swift"
+                  timestampString = "552101909.474782"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "87">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "AugmentedRealityTest.SelfViewController.__allocating_init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;AugmentedRealityTest.SelfViewController&gt;"
+                  moduleName = "AugmentedRealityTest"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/semenletychevskyy/Documents/virtualstylesAR/AugmentedRealityTest/AugmentedRealityTest/SelfViewController.swift"
+                  timestampString = "552101909.479757"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "4">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -70,12 +85,12 @@
                   symbolName = "AugmentedRealityTest.SelfViewController.init(coder: __ObjC.NSCoder) -&gt; Swift.Optional&lt;AugmentedRealityTest.SelfViewController&gt;"
                   moduleName = "AugmentedRealityTest"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/semenletychevskyy/Documents/gitresVSAR/vsar/AugmentedRealityTest/AugmentedRealityTest/SelfViewController.swift"
-                  timestampString = "551403996.019416"
+                  urlString = "file:///Users/semenletychevskyy/Documents/virtualstylesAR/AugmentedRealityTest/AugmentedRealityTest/SelfViewController.swift"
+                  timestampString = "552101909.484655"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
                   offsetFromSymbolStart = "57">
                </Location>
             </Locations>

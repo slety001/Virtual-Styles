@@ -9,23 +9,39 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseAuth
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-        let storyboard = UIStoryboard(name: "Login", bundle: .main)
-        
-        if let initialViewController = storyboard.instantiateInitialViewController() {
-            window?.rootViewController = initialViewController
-            window?.makeKeyAndVisible()
-        }
-        // Override point for customization after application launch.
+        /*let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+
+            if user != nil {
+                Profile.observeUserProfile(user!.uid) { userProfile in
+                    Profile.currentUserProfile = userProfile
+                }
+                let storyboard = UIStoryboard(name: "Main", bundle: .main)
+                let initialViewController = storyboard.instantiateInitialViewController()
+                //let initialViewController = storyboard.instantiateViewController(withIdentifier: "MenuViewController") as! MenuViewController
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+                
+            } else {
+                */
+                let storyboard = UIStoryboard(name: "Login", bundle: .main)
+                Profile.currentUserProfile = nil
+                
+                let initialViewController = storyboard.instantiateInitialViewController()
+                self.window?.rootViewController = initialViewController
+                self.window?.makeKeyAndVisible()
+          //  }
+            
+       // }
         return true
     }
 
