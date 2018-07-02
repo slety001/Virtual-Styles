@@ -36,7 +36,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                     changeRequest?.commitChanges { error in
                         if error == nil {
                             print("User display name changed")
-                            self.saveData(username : username){ success in
+                            self.saveUserToDatabase(username : username){ success in
                                 if success {
                                     self.dismiss(animated: true, completion: nil)
                                 } else {
@@ -55,13 +55,13 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                     print("3")
                     //self.signUpError()
                 }
-            }
+            } 
         } else {
             textFieldNotFilled()
         }
     }
     
-    func saveData(username: String, completion: @escaping ((_ success:Bool)->())){
+    func saveUserToDatabase(username: String, completion: @escaping ((_ success:Bool)->())){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let databaseRef = Database.database().reference().child("users/profile/\(uid)")
         

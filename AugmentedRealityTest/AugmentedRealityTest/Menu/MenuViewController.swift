@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 
 class MenuViewController: UIViewController {
-
+    
     @IBOutlet weak var userNameLabel: UILabel!
     
     @IBAction func signOutUser(_ sender: UIButton) {
@@ -41,7 +41,7 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 

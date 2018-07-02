@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0180BB9420EA72EE000836FB /* takeAPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0180BB9320EA72EE000836FB /* takeAPhotoViewController.swift */; };
 		01B998D620BEAACB00FA5E1D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B998D520BEAACB00FA5E1D /* AppDelegate.swift */; };
 		01B998D820BEAACB00FA5E1D /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 01B998D720BEAACB00FA5E1D /* art.scnassets */; };
 		01B998DA20BEAACB00FA5E1D /* SelfViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01B998D920BEAACB00FA5E1D /* SelfViewController.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0180BB9320EA72EE000836FB /* takeAPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takeAPhotoViewController.swift; sourceTree = "<group>"; };
 		01B998D220BEAACB00FA5E1D /* AugmentedRealityTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugmentedRealityTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		01B998D520BEAACB00FA5E1D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		01B998D720BEAACB00FA5E1D /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				01C1258620E66661005B6F0B /* Model */,
 				01B998D720BEAACB00FA5E1D /* art.scnassets */,
 				96025CCB20E808E000E6DBAA /* Assets.xcassets */,
+				0180BB9320EA72EE000836FB /* takeAPhotoViewController.swift */,
 				01B998DB20BEAACC00FA5E1D /* Main.storyboard */,
 				01C1258420E65BCC005B6F0B /* Login.storyboard */,
 				01B998E020BEAACC00FA5E1D /* LaunchScreen.storyboard */,
@@ -469,6 +472,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0180BB9420EA72EE000836FB /* takeAPhotoViewController.swift in Sources */,
 				FA51003120C99F5D001CEC58 /* WorldFaceTracking.swift in Sources */,
 				01B9990820BEB93100FA5E1D /* WorldViewController.swift in Sources */,
 				96025CD920E846F000E6DBAA /* SignupViewController.swift in Sources */,

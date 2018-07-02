@@ -19,7 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         
-        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+        //let authListener
+           _ = Auth.auth().addStateDidChangeListener { auth, user in
 
             if user != nil {
                 Profile.observeUserProfile(user!.uid) { userProfile in
