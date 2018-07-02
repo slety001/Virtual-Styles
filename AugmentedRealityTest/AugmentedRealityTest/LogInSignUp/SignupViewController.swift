@@ -40,16 +40,20 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                                 if success {
                                     self.dismiss(animated: true, completion: nil)
                                 } else {
+                                    print("faild")
                                     self.signUpError()
                                 }
                             }
                         } else {
+                            print("1")
                             print("Error: \(error!.localizedDescription)")
                         }
-                    self.signUpError()
+                    print("2")
+                    //self.signUpError()
                     }
                 } else {
-                    self.signUpError()
+                    print("3")
+                    //self.signUpError()
                 }
             }
         } else {
