@@ -13,16 +13,20 @@ class InitialLoginViewController: UIViewController {
 
     fileprivate func checkState(){
         if (Auth.auth().currentUser != nil) {
-            self.performSegue(withIdentifier: "go to menu", sender: self)
+            DispatchQueue.main.async {
+                self.performSegue(withIdentifier: "go to menu", sender: self)
+                return
+            }
+            
         }
-        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+        /*let authListener = Auth.auth().addStateDidChangeListener { auth, user in
             if user != nil {
                 Profile.observeUserProfile(user!.uid) { userProfile in
                     Profile.currentUserProfile = userProfile
                 }
                 self.performSegue(withIdentifier: "go to menu", sender: self)
             }
-        }
+        }*/
     }
 
     override func viewDidLoad() {

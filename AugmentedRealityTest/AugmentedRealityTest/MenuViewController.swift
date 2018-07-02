@@ -15,6 +15,13 @@ class MenuViewController: UIViewController {
         if Auth.auth().currentUser != nil {
             do {
                 try Auth.auth().signOut()
+                let storyboard = UIStoryboard(name: "Login", bundle: .main)
+                let initialViewController = storyboard.instantiateInitialViewController()
+                self.present(initialViewController!, animated: true, completion: nil)
+                
+                //let initialLoginViewController = InitialLoginViewController()
+                //let initialNavigationController = UINavigationController(rootViewController: initialLoginViewController)
+                //self.present(initialNavigationController, animated: true, completion: nil)
             }
             catch {
             }

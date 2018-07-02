@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
+import FirebaseStorage
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
     
@@ -24,6 +26,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func signUpPush(_ sender: UIButton) {
+        guard let username = userNameTextField.text else {return}
         if (userNameTextField != nil && userNameTextField.text != "" && emailField != nil && emailField.text != "" && passwordField != nil && passwordField.text != ""){
             Auth.auth().createUser(withEmail: emailField.text!, password: passwordField.text!) { user, error in
                 if error == nil && user != nil {
@@ -32,7 +35,14 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                     changeRequest?.displayName = self.userNameTextField.text
                     changeRequest?.commitChanges { error in
                         if error == nil {
-                            print("User display name changed!")
+                            print("User display name changed")
+                            self.saveData(username : username){ success in
+                                if success {
+                                    self.dismiss(animated: true, completion: nil)
+                                } else {
+                                    self.signUpError()
+                                }
+                            }
                         } else {
                             print("Error: \(error!.localizedDescription)")
                         }
@@ -44,6 +54,19 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
             }
         } else {
             textFieldNotFilled()
+        }
+    }
+    
+    func saveData(username: String, completion: @escaping ((_ success:Bool)->())){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let databaseRef = Database.database().reference().child("users/profile/\(uid)")
+        
+        let userObject = [
+            "username": username
+            ] as [String:Any]
+        
+        databaseRef.setValue(userObject) { error, ref in
+            completion(error == nil)
         }
     }
     
