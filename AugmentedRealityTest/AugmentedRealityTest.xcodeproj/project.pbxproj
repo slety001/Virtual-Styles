@@ -115,6 +115,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0180BB8D20EA6135000836FB /* Camera */ = {
+			isa = PBXGroup;
+			children = (
+				01B998D920BEAACB00FA5E1D /* SelfViewController.swift */,
+				01B9990720BEB93100FA5E1D /* WorldViewController.swift */,
+				FA51003020C99F5D001CEC58 /* WorldFaceTracking.swift */,
+				FA01B67D20DFCAC0005353B0 /* CustomCell.swift */,
+			);
+			path = Camera;
+			sourceTree = "<group>";
+		};
+		0180BB8E20EA6175000836FB /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				01C1258B20E690B6005B6F0B /* MenuViewController.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		01B998C920BEAACB00FA5E1D = {
 			isa = PBXGroup;
 			children = (
@@ -141,19 +160,16 @@
 		01B998D420BEAACB00FA5E1D /* AugmentedRealityTest */ = {
 			isa = PBXGroup;
 			children = (
+				0180BB8E20EA6175000836FB /* Menu */,
+				0180BB8D20EA6135000836FB /* Camera */,
 				96025CCF20E8377600E6DBAA /* LogInSignUp */,
-				01B998D520BEAACB00FA5E1D /* AppDelegate.swift */,
 				01C1258620E66661005B6F0B /* Model */,
 				01B998D720BEAACB00FA5E1D /* art.scnassets */,
 				96025CCB20E808E000E6DBAA /* Assets.xcassets */,
 				01B998DB20BEAACC00FA5E1D /* Main.storyboard */,
 				01C1258420E65BCC005B6F0B /* Login.storyboard */,
 				01B998E020BEAACC00FA5E1D /* LaunchScreen.storyboard */,
-				01B998D920BEAACB00FA5E1D /* SelfViewController.swift */,
-				01B9990720BEB93100FA5E1D /* WorldViewController.swift */,
-				FA51003020C99F5D001CEC58 /* WorldFaceTracking.swift */,
-				FA01B67D20DFCAC0005353B0 /* CustomCell.swift */,
-				01C1258B20E690B6005B6F0B /* MenuViewController.swift */,
+				01B998D520BEAACB00FA5E1D /* AppDelegate.swift */,
 				01B998E320BEAACC00FA5E1D /* Info.plist */,
 				966B4FAD20DDB0860020E3D7 /* GoogleService-Info.plist */,
 			);
