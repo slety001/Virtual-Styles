@@ -19,6 +19,9 @@
 		01C1258520E65BCC005B6F0B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C1258420E65BCC005B6F0B /* Login.storyboard */; };
 		01C1258820E6667E005B6F0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1258720E6667E005B6F0B /* User.swift */; };
 		01C1258C20E690B6005B6F0B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1258B20E690B6005B6F0B /* MenuViewController.swift */; };
+		01DD164020ECF6FD0022787B /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD163F20ECF6FD0022787B /* Bubble.swift */; };
+		01DD164220ECF7F10022787B /* Hat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD164120ECF7F10022787B /* Hat.swift */; };
+		01DD164420ECF7FF0022787B /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD164320ECF7FF0022787B /* Pet.swift */; };
 		83EC14B023912914099A1D80 /* Pods_AugmentedRealityTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1191C4E008DD945A0F3D1A /* Pods_AugmentedRealityTestTests.framework */; };
 		89AA9012778C88A6895F43D1 /* Pods_AugmentedRealityTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E0B9AD4724EF4EB010E266 /* Pods_AugmentedRealityTestUITests.framework */; };
 		96025CCA20E7CE0500E6DBAA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96025CC920E7CE0500E6DBAA /* Profile.swift */; };
@@ -71,6 +74,9 @@
 		01C1258420E65BCC005B6F0B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		01C1258720E6667E005B6F0B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		01C1258B20E690B6005B6F0B /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		01DD163F20ECF6FD0022787B /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
+		01DD164120ECF7F10022787B /* Hat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hat.swift; sourceTree = "<group>"; };
+		01DD164320ECF7FF0022787B /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		0591E3AE8DD0E508212FB53B /* Pods-AugmentedRealityTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedRealityTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugmentedRealityTestTests/Pods-AugmentedRealityTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		25BF81353661DCE6AA173DD0 /* Pods_AugmentedRealityTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugmentedRealityTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AC2310894F7928C53D6DD5 /* Pods-AugmentedRealityTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedRealityTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugmentedRealityTestUITests/Pods-AugmentedRealityTestUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -163,7 +169,6 @@
 		01B998D420BEAACB00FA5E1D /* AugmentedRealityTest */ = {
 			isa = PBXGroup;
 			children = (
-				96894D1520DDAA730093F28B /* MultiPeerConn */,
 				0180BB8E20EA6175000836FB /* Menu */,
 				0180BB8D20EA6135000836FB /* Camera */,
 				96025CCF20E8377600E6DBAA /* LogInSignUp */,
@@ -175,9 +180,9 @@
 				01C1258420E65BCC005B6F0B /* Login.storyboard */,
 				01B998E020BEAACC00FA5E1D /* LaunchScreen.storyboard */,
 				01B998D520BEAACB00FA5E1D /* AppDelegate.swift */,
+				FA59CEBA20EBCF8500371C20 /* VirtualPlane.swift */,
 				01B998E320BEAACC00FA5E1D /* Info.plist */,
 				966B4FAD20DDB0860020E3D7 /* GoogleService-Info.plist */,
-				FA59CEBA20EBCF8500371C20 /* VirtualPlane.swift */,
 			);
 			path = AugmentedRealityTest;
 			sourceTree = "<group>";
@@ -205,6 +210,9 @@
 			children = (
 				01C1258720E6667E005B6F0B /* User.swift */,
 				96025CC920E7CE0500E6DBAA /* Profile.swift */,
+				01DD163F20ECF6FD0022787B /* Bubble.swift */,
+				01DD164120ECF7F10022787B /* Hat.swift */,
+				01DD164320ECF7FF0022787B /* Pet.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,14 +235,6 @@
 				96025CD820E846F000E6DBAA /* SignupViewController.swift */,
 			);
 			path = LogInSignUp;
-			sourceTree = "<group>";
-		};
-		96894D1520DDAA730093F28B /* MultiPeerConn */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = MultiPeerConn;
-			path = ../MultiPeerConn;
 			sourceTree = "<group>";
 		};
 		A70D3197B1D664FC0E26FD2C /* Pods */ = {
@@ -482,11 +482,14 @@
 				96025CD920E846F000E6DBAA /* SignupViewController.swift in Sources */,
 				01B998DA20BEAACB00FA5E1D /* SelfViewController.swift in Sources */,
 				01B998D620BEAACB00FA5E1D /* AppDelegate.swift in Sources */,
+				01DD164220ECF7F10022787B /* Hat.swift in Sources */,
 				FA01B67E20DFCAC0005353B0 /* CustomCell.swift in Sources */,
 				96025CD120E8385B00E6DBAA /* InitialLoginViewController.swift in Sources */,
 				01C1258820E6667E005B6F0B /* User.swift in Sources */,
 				FA59CEBB20EBCF8500371C20 /* VirtualPlane.swift in Sources */,
 				96025CCA20E7CE0500E6DBAA /* Profile.swift in Sources */,
+				01DD164020ECF6FD0022787B /* Bubble.swift in Sources */,
+				01DD164420ECF7FF0022787B /* Pet.swift in Sources */,
 				96025CD720E846DA00E6DBAA /* LoginViewController.swift in Sources */,
 				01C1258C20E690B6005B6F0B /* MenuViewController.swift in Sources */,
 			);
@@ -664,7 +667,7 @@
 				INFOPLIST_FILE = AugmentedRealityTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AugmentedRealityTest;
+				PRODUCT_BUNDLE_IDENTIFIER = sl.AugmentedRealityTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -681,7 +684,7 @@
 				INFOPLIST_FILE = AugmentedRealityTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AugmentedRealityTest;
+				PRODUCT_BUNDLE_IDENTIFIER = sl.AugmentedRealityTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

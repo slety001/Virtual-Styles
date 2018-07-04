@@ -126,11 +126,20 @@
                                     <segue destination="VAp-Zi-iHh" kind="show" id="dHq-jn-KdF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Rp-vS-SNv">
+                                <rect key="frame" x="261" y="123" width="102" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="upload pic test"/>
+                                <connections>
+                                    <action selector="uploadButTest:" destination="eli-Q5-eQw" eventType="touchUpInside" id="b9K-TZ-U2q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="0KH-nu-LYq"/>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="A0a-qp-wyu" id="ehC-dW-dA2"/>
                         <outlet property="userNameLabel" destination="Amo-Cw-29f" id="ThQ-YH-9cd"/>
                     </connections>
                 </viewController>
