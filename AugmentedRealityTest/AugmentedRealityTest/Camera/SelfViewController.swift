@@ -314,7 +314,7 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
                                 }
                                 if(self.bubbleNode.geometry != nil){
                                     let bubbleHeight = CGFloat(self.bubbleNode.boundingBox.max.y)-CGFloat(self.bubbleNode.boundingBox.min.y)
-                                    let newY = faceRectVector.y + Float(bubbleHeight/2)
+                                    let newY = faceRectVector.y + Float(bubbleHeight/6)
                                     let moveAction = SCNAction.move(to: SCNVector3(faceRectVector.x,newY,faceRectVector.z), duration: 0.07)
                                     self.bubbleNode.isHidden = false
                                     self.bubbleNode.runAction(moveAction)
