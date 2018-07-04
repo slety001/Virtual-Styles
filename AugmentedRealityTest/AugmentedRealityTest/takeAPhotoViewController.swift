@@ -13,9 +13,7 @@ import ARKit
 import Vision
 
 class takeAPhotoViewController : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    //https://stackoverflow.com/questions/49613417/save-arkit-snapshot-directly-to-photo-gallery-swift-4
-    
+
     @IBOutlet weak var hm: ARSCNView!
 
     override func viewDidLoad() {
@@ -28,6 +26,8 @@ class takeAPhotoViewController : UIViewController, UIImagePickerControllerDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     @IBAction func takePhoto(_ sender: UIButton) {
         let snapShot = self.hm.snapshot()
