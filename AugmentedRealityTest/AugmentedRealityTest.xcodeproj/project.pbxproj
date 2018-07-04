@@ -33,6 +33,9 @@
 		FA01B67E20DFCAC0005353B0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01B67D20DFCAC0005353B0 /* CustomCell.swift */; };
 		FA51003120C99F5D001CEC58 /* WorldFaceTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51003020C99F5D001CEC58 /* WorldFaceTracking.swift */; };
 		FA59CEBB20EBCF8500371C20 /* VirtualPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59CEBA20EBCF8500371C20 /* VirtualPlane.swift */; };
+		FA59CEBD20ECD87600371C20 /* ConnectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59CEBC20ECD87600371C20 /* ConnectionsViewController.swift */; };
+		FA59CEBF20ECD8C700371C20 /* FileSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59CEBE20ECD8C700371C20 /* FileSharingViewController.swift */; };
+		FA59CEC120ECD8E500371C20 /* ChatBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59CEC020ECD8E500371C20 /* ChatBoxViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -89,6 +92,9 @@
 		FA01B67D20DFCAC0005353B0 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		FA51003020C99F5D001CEC58 /* WorldFaceTracking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldFaceTracking.swift; sourceTree = "<group>"; };
 		FA59CEBA20EBCF8500371C20 /* VirtualPlane.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VirtualPlane.swift; sourceTree = "<group>"; };
+		FA59CEBC20ECD87600371C20 /* ConnectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ConnectionsViewController.swift; path = AugmentedRealityTest/ConnectionsViewController.swift; sourceTree = SOURCE_ROOT; };
+		FA59CEBE20ECD8C700371C20 /* FileSharingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileSharingViewController.swift; path = AugmentedRealityTest/FileSharingViewController.swift; sourceTree = SOURCE_ROOT; };
+		FA59CEC020ECD8E500371C20 /* ChatBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatBoxViewController.swift; path = AugmentedRealityTest/ChatBoxViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +238,9 @@
 		96894D1520DDAA730093F28B /* MultiPeerConn */ = {
 			isa = PBXGroup;
 			children = (
+				FA59CEBC20ECD87600371C20 /* ConnectionsViewController.swift */,
+				FA59CEBE20ECD8C700371C20 /* FileSharingViewController.swift */,
+				FA59CEC020ECD8E500371C20 /* ChatBoxViewController.swift */,
 			);
 			name = MultiPeerConn;
 			path = ../MultiPeerConn;
@@ -479,7 +488,9 @@
 				0180BB9420EA72EE000836FB /* takeAPhotoViewController.swift in Sources */,
 				FA51003120C99F5D001CEC58 /* WorldFaceTracking.swift in Sources */,
 				01B9990820BEB93100FA5E1D /* WorldViewController.swift in Sources */,
+				FA59CEBF20ECD8C700371C20 /* FileSharingViewController.swift in Sources */,
 				96025CD920E846F000E6DBAA /* SignupViewController.swift in Sources */,
+				FA59CEBD20ECD87600371C20 /* ConnectionsViewController.swift in Sources */,
 				01B998DA20BEAACB00FA5E1D /* SelfViewController.swift in Sources */,
 				01B998D620BEAACB00FA5E1D /* AppDelegate.swift in Sources */,
 				FA01B67E20DFCAC0005353B0 /* CustomCell.swift in Sources */,
@@ -488,6 +499,7 @@
 				FA59CEBB20EBCF8500371C20 /* VirtualPlane.swift in Sources */,
 				96025CCA20E7CE0500E6DBAA /* Profile.swift in Sources */,
 				96025CD720E846DA00E6DBAA /* LoginViewController.swift in Sources */,
+				FA59CEC120ECD8E500371C20 /* ChatBoxViewController.swift in Sources */,
 				01C1258C20E690B6005B6F0B /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

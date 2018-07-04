@@ -183,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWp-y9-hny" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-86" y="1292"/>
+            <point key="canvasLocation" x="-967" y="1445"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="Ac2-O9-ONy">
@@ -213,6 +213,7 @@
                     <connections>
                         <segue destination="ccO-VC-Xc6" kind="relationship" relationship="viewControllers" id="Si3-gE-pDF"/>
                         <segue destination="zhb-yT-k8T" kind="relationship" relationship="viewControllers" id="V49-sx-n9M"/>
+                        <segue destination="hKz-UQ-xYB" kind="relationship" relationship="viewControllers" id="dZP-fk-2de"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6uO-mx-u4L" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -400,6 +401,22 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-85.599999999999994" y="-155.17241379310346"/>
+        </scene>
+        <!--Item 3-->
+        <scene sceneID="qJ7-Zc-6l4">
+            <objects>
+                <viewController id="hKz-UQ-xYB" userLabel="Item 3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ky1-tt-Ylj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="HyR-4t-HGo"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 3" id="EZf-Hf-uvq" userLabel="Item 3"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4e5-5X-h05" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-86" y="1343"/>
         </scene>
     </scenes>
     <resources>
