@@ -49,7 +49,26 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
-    @IBAction func returnButtontapped(_ sender: Any) {
+    @IBAction func emailTextFieldReturnTaped(_ sender: Any) {
+        emailTextField.resignFirstResponder()
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>,
+                               with event: UIEvent?) {
+        self.emailTextField.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(emailTextField: UITextField) -> Bool {
+        
+        emailTextField.resignFirstResponder()
+        
+        //or
+        //self.view.endEditing(true)
+        
+        return true
+    }
+    
+    /*@IBAction func returnButtontapped(_ sender: Any) {
         
             emailTextField.resignFirstResponder()
         
@@ -58,7 +77,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.resignFirstResponder()
     }
     
-    /*private func textFieldShouldReturn(textField: UITextField) -> Bool {
+    private func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == emailTextField {
             textField.resignFirstResponder()
             return false
