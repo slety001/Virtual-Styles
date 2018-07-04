@@ -69,6 +69,8 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
     var petScene : SCNScene?
     
     var planePosition : SCNVector3?
+    var planes = [UUID: VirtualPlane]()
+    var plane : VirtualPlane?
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(pickHatsButton.isSelected){
@@ -192,7 +194,7 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         // Create a session configuration
         guard ARFaceTrackingConfiguration.isSupported else {
-            let alert = UIAlertController(title: "You're Using IPhone 7 or lower", message: "For SelfiCamera-AR-Experience you need IPhone 8 or higher! Use a Mirror to do your Settings over the FrontCamera!", preferredStyle: .alert)
+            let alert = UIAlertController(title: "You're Using IPhone 7 or lower", message: "For FaceCamera-AR-Experience you need IPhone 8 or higher! Use a Mirror to do your Settings using the FrontCamera!", preferredStyle: .alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             
@@ -231,11 +233,7 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
     
 
     // Override to create and configure nodes for anchors added to the view's session.
-    func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
-        let faceNode = SCNNode()
-        
-        return faceNode
-    }
+
 
     
     func session(_ session: ARSession, didFailWithError error: Error) {
@@ -275,67 +273,66 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
         let detectFaceRequest = VNDetectFaceRectanglesRequest { (request, error) in
             
             DispatchQueue.main.async {
+                if(self.petNode.childNodes.isEmpty == false && self.plane != nil){
+                    self.scalePet(plane: self.plane!)
+                    self.movePet(plane: self.plane!)
+                    self.petNode.isHidden = false
+                    
+                }
                 //Loop through the resulting faces and add a red UIView on top of them.
                 if let faces = request.results as? [VNFaceObservation] {
                     if (faces.isEmpty){
                         //NSLog(" NO FACE FOUND !")
                         self.hatNode.isHidden = true
-                        self.petNode.isHidden = true
                         self.bubbleNode.isHidden = true
                     }
                     else{
                         for face in faces {
-
+                            
                             let faceRectFrame = self.faceFrame(from: face.boundingBox)
                             let faceView = UIView(frame: faceRectFrame)
                             faceView.backgroundColor = .red
                             
                             let faceRectVector = self.doHitTest(faceRectPoint: CGPoint(x: faceRectFrame.origin.x, y: faceRectFrame.origin.y))
-                            NSLog("x: %f",faceRectVector.x)
-                            NSLog("y: %f",faceRectVector.y)
-                            NSLog("z: %f",faceRectVector.z)
+                            //NSLog("x: %f",faceRectVector.x)
+                            //NSLog("y: %f",faceRectVector.y)
+                            //NSLog("z: %f",faceRectVector.z)
                             
-                            let moveAction = SCNAction.move(to: SCNVector3(faceRectVector.x,faceRectVector.y,faceRectVector.z), duration: 0.07)
+                            
                                 //let scaleFactor =  CGFloat((self.hatNode.boundingBox.max.x/100))
                             if(faceRectVector.x != 0 && faceRectVector.y != 0 && faceRectVector.z != 0){
                             
                                 if(self.hatNode.childNodes.isEmpty == false){
-                                
+                                    let moveAction = SCNAction.move(to: SCNVector3(faceRectVector.x,faceRectVector.y,faceRectVector.z), duration: 0.07)
                                     self.hatNode.isHidden = false
                                     self.hatNode.runAction(moveAction)
-                                   
-                                    let scaleFactor = (faceRectFrame.width/CGFloat(self.hatNode.boundingBox.max.x))*0.004
+                                    let hatWidth = CGFloat(self.hatNode.boundingBox.max.x)-CGFloat(self.hatNode.boundingBox.min.x)
+                                    let scaleFactor = (faceRectFrame.width/hatWidth)*0.002
                                     NSLog("scaleFactor : %f", scaleFactor)
                                     let scaleAction = SCNAction.scale(to: scaleFactor, duration: 0.07)
                                     self.hatNode.runAction(scaleAction)
                                 }
                                 if(self.bubbleNode.geometry != nil){
-                                    
+                                    let bubbleHeight = CGFloat(self.bubbleNode.boundingBox.max.y)-CGFloat(self.bubbleNode.boundingBox.min.y)
+                                    let newY = faceRectVector.y + Float(bubbleHeight/2)
+                                    let moveAction = SCNAction.move(to: SCNVector3(faceRectVector.x,newY,faceRectVector.z), duration: 0.07)
                                     self.bubbleNode.isHidden = false
                                     self.bubbleNode.runAction(moveAction)
+                                    let bubbleWidth = CGFloat(self.bubbleNode.boundingBox.max.x)-CGFloat(self.bubbleNode.boundingBox.min.x)
+                                    let textWidth = CGFloat(self.textNode.boundingBox.max.x)-CGFloat(self.textNode.boundingBox.min.x)
+                                    let textScaleFactor = (bubbleWidth/textWidth)*0.2
+                                    let bubbleScaleFactor = (faceRectFrame.width/bubbleWidth)*0.005
+                                    NSLog("bubbleScaleFactor : %f", bubbleScaleFactor)
+                                    NSLog("textScaleFactor : %f", textScaleFactor)
                                     
-                                    let scaleFactor = (CGFloat(self.bubbleNode.boundingBox.max.x)/CGFloat(self.textNode.boundingBox.max.x))*0.5
-                                    NSLog("scaleFactor : %f", scaleFactor)
-                                    
-                                    let scaleAction = SCNAction.scale(to: scaleFactor, duration: 0.07)
-                                    self.textNode.runAction(scaleAction)
-                                    
+                                    let bubbleScaleAction = SCNAction.scale(to: bubbleScaleFactor, duration: 0.07)
+                                    let textScaleAction = SCNAction.scale(to: textScaleFactor, duration: 0.07)
+                                    self.bubbleNode.runAction(bubbleScaleAction)
+                                    self.textNode.runAction(textScaleAction)
                                 }
-                                if(self.petNode.childNodes.isEmpty == false&&self.planePosition != nil){
-                                    
-                                    NSLog("planePositioXn: %f", (self.planePosition?.x)!)
-                                    NSLog("planePositioYn: %f", (self.planePosition?.y)!)
-                                    NSLog("planePositioZn: %f", (self.planePosition?.z)!)
-                                    self.petNode.isHidden = false
-                                    let moveAction = SCNAction.move(to: SCNVector3((self.planePosition?.x)!,(self.planePosition?.y)!,(self.planePosition?.z)!), duration: 0.07)
-                                    self.petNode.runAction(moveAction)
-                                }
-                                
-
                                 //self.viewModeARSCN.scene = self.modelScene!
                                 self.viewModeARSCN.scene = self.mainScene
                                 self.viewModeARSCN.addSubview(faceView)
-                                
                                 self.scannedFaceViews.append(faceView)
                             }
                         }
@@ -361,14 +358,59 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
 extension SelfViewController {
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
-        // 1
-        guard let planeAnchor = anchor as? ARPlaneAnchor else { return }
-        //let translation = SCNMatrix4(planeAnchor.transform)
-        //planePosition = SCNVector3(translation.m41, translation.m42, translation.m43)
-        
-        planePosition = SCNVector3(planeAnchor.transform.columns.3.x,planeAnchor.transform.columns.3.y, planeAnchor.transform.columns.3.z)
-        
-        print("Found plane: \(planeAnchor)")
+
+        if let arPlaneAnchor = anchor as? ARPlaneAnchor {
+            
+                let myPlane = VirtualPlane(anchor: arPlaneAnchor)
+                self.planes[anchor.identifier] = plane
+                node.addChildNode(myPlane)
+                self.plane = myPlane
+            
+            
+            
+        }
     }
-    
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if let arPlaneAnchor = anchor as? ARPlaneAnchor, let plane = planes[arPlaneAnchor.identifier] {
+            // Remove existing plane nodes
+            node.enumerateChildNodes {
+                (childNode, _) in
+                childNode.removeFromParentNode()
+            }
+            //
+            plane.updateWithNewAnchor(arPlaneAnchor)
+            self.plane = plane
+
+        }
+        
+    }
+
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        if let arPlaneAnchor = anchor as? ARPlaneAnchor, let index = planes.index(forKey: arPlaneAnchor.identifier) {
+            // Remove existing plane nodes
+            node.enumerateChildNodes {
+                (childNode, _) in
+                childNode.removeFromParentNode()
+            }
+            planes.remove(at: index)
+        }
+    }
+    func scalePet(plane: VirtualPlane){
+        //let scaleFactor = (faceRectFrame.width/CGFloat(self.hatNode.boundingBox.max.x))*0.004
+        let petWidth = CGFloat(self.petNode.boundingBox.max.x)-CGFloat(self.petNode.boundingBox.min.x)
+        let planeWidth = CGFloat(plane.planeGeometry.boundingBox.max.x)-CGFloat(plane.planeGeometry.boundingBox.min.x)
+        let scaleFactor = (petWidth/planeWidth)*0.005
+        //NSLog("scaleFactor : %f", scaleFactor)
+        
+        let scaleAction = SCNAction.scale(to: scaleFactor, duration: 0.07)
+        self.petNode.runAction(scaleAction)
+        self.petNode.isHidden = false
+    }
+    func movePet(plane: VirtualPlane){
+        //NSLog("worldPosX : %f, worldPosY : %f, worldPosZ : %f", plane.worldPosition.x, plane.worldPosition.y, plane.worldPosition.z)
+        //let moveAction = SCNAction.move(to: SCNVector3((self.planePosition?.x)!,(self.planePosition?.y)!,(self.planePosition?.z)!), duration: 0.07)
+        let moveAction = SCNAction.move(to: SCNVector3(CGFloat(plane.worldPosition.x),CGFloat(plane.worldPosition.y),CGFloat(plane.worldPosition.z)), duration: 0.07)
+        self.petNode.runAction(moveAction)
+        self.petNode.isHidden = false
+    }
 }
