@@ -9,7 +9,10 @@
 import UIKit
 import FirebaseAuth
 
-class MenuViewController: UIViewController {
+class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    
+    @IBOutlet weak var imageView: UIImageView!
     
     @IBOutlet weak var userNameLabel: UILabel!
     
@@ -29,13 +32,48 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        let cu = Auth.auth().currentUser?.displayName
-        userNameLabel.text = cu
         
-        // Do any additional setup after loading the view.
+        let activityIndicator = UIActivityIndicatorView()
+        view.addSubview(activityIndicator)
+        activityIndicator.frame = self.view.bounds
+        activityIndicator.startAnimating()
+        
+        let cu = Auth.auth().currentUser?.displayName
+        if cu != nil {
+            userNameLabel.text = cu
+            activityIndicator.stopAnimating()
+            activityIndicator.removeFromSuperview()
+        } else {
+            
+            let delay = 1.0
+            DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
+                activityIndicator.stopAnimating()
+                activityIndicator.removeFromSuperview()
+            }
+        }
+ 
     }
-
+    
+    @IBAction func uploadButTest(_ sender: UIButton) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            //imageView.contentMode = .scaleToFill
+            imageView.image = pickedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

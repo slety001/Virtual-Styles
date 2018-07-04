@@ -140,6 +140,7 @@
                         <viewLayoutGuide key="safeArea" id="0KH-nu-LYq"/>
                     </view>
                     <connections>
+                        <outlet property="imageView" destination="A0a-qp-wyu" id="ehC-dW-dA2"/>
                         <outlet property="userNameLabel" destination="Amo-Cw-29f" id="ThQ-YH-9cd"/>
                     </connections>
                 </viewController>
