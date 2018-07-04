@@ -49,6 +49,27 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
     
+    @IBAction func returnButtontapped(_ sender: Any) {
+        
+            emailTextField.resignFirstResponder()
+        
+    }
+    @IBAction func retrnButoonPassTapped(_ sender: UITextField) {
+        passwordTextField.resignFirstResponder()
+    }
+    
+    /*private func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == emailTextField {
+            textField.resignFirstResponder()
+            return false
+        }
+        if textField == passwordTextField{
+            textField.resignFirstResponder()
+            return false
+        }
+        return true
+    }*/
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -57,22 +78,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         emailTextField.becomeFirstResponder()
-        NotificationCenter.default.addObserver(self, selector:#selector(keyboardWillAppear), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         emailTextField.resignFirstResponder()
         passwordTextField.resignFirstResponder()
-        NotificationCenter.default.removeObserver(self)
     }
-    
-    
-    @objc func keyboardWillAppear(notification: NSNotification){
-        let info = notification.userInfo!
-        let keyboardFrame: CGRect = (info[UIKeyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
-    }
+
     
     /*
     // MARK: - Navigation
