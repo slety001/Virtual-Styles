@@ -25,6 +25,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
+                                    <action selector="emailTextFieldReturnTaped:" destination="R1y-b3-5xu" eventType="primaryActionTriggered" id="TF2-GU-UHC"/>
                                     <action selector="returnButtontapped:" destination="R1y-b3-5xu" eventType="editingDidEnd" id="tGW-XM-CGo"/>
                                 </connections>
                             </textField>
