@@ -13,18 +13,17 @@ class Profile {
     
     static var currentUserProfile:User?
     
-    static func observeUserProfile(_ uid:String, completion: @escaping ((_ userProfile:User?)->())) {
+    static func observeUserProfile(_ uid:String, completion: @escaping ((_ userProfile : User?)->())) {
         let userRef = Database.database().reference().child("users/profile/\(uid)")
         
         userRef.observe(.value, with: { snapshot in
             var userProfile:User?
             
             if let dict = snapshot.value as? [String:Any],
-                let username = dict["username"] as? String,
-                let photoURL = dict["photoURL"] as? String,
-                let url = URL(string:photoURL) {
+                let username = dict["username"] as? String
+            {
                 
-                userProfile = User(uid: snapshot.key, username: username, photoURL: url)
+                userProfile = User(uid: snapshot.key, username : username) 
             }
             
             completion(userProfile)

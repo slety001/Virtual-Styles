@@ -10,18 +10,17 @@ import UIKit
 import FirebaseAuth
 
 class MenuViewController: UIViewController {
-
+    
+    @IBOutlet weak var userNameLabel: UILabel!
+    
     @IBAction func signOutUser(_ sender: UIButton) {
         if Auth.auth().currentUser != nil {
             do {
                 try Auth.auth().signOut()
+                print("user signed out")
                 let storyboard = UIStoryboard(name: "Login", bundle: .main)
                 let initialViewController = storyboard.instantiateInitialViewController()
                 self.present(initialViewController!, animated: true, completion: nil)
-                
-                //let initialLoginViewController = InitialLoginViewController()
-                //let initialNavigationController = UINavigationController(rootViewController: initialLoginViewController)
-                //self.present(initialNavigationController, animated: true, completion: nil)
             }
             catch {
             }
@@ -31,6 +30,9 @@ class MenuViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        let cu = Auth.auth().currentUser?.displayName
+        userNameLabel.text = cu
+        
         // Do any additional setup after loading the view.
     }
 
@@ -39,7 +41,7 @@ class MenuViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
     // MARK: - Navigation
 

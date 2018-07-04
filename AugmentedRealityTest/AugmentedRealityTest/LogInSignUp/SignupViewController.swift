@@ -9,7 +9,6 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
-import FirebaseStorage
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
     
@@ -36,28 +35,32 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                     changeRequest?.commitChanges { error in
                         if error == nil {
                             print("User display name changed")
-                            self.saveData(username : username){ success in
+                            self.saveUserToDatabase(username : username){ success in
                                 if success {
                                     self.dismiss(animated: true, completion: nil)
                                 } else {
+                                    print("faild")
                                     self.signUpError()
                                 }
                             }
                         } else {
+                            print("1")
                             print("Error: \(error!.localizedDescription)")
                         }
-                    self.signUpError()
+                    print("2")
+                    //self.signUpError()
                     }
                 } else {
-                    self.signUpError()
+                    print("3")
+                    //self.signUpError()
                 }
-            }
+            } 
         } else {
             textFieldNotFilled()
         }
     }
     
-    func saveData(username: String, completion: @escaping ((_ success:Bool)->())){
+    func saveUserToDatabase(username: String, completion: @escaping ((_ success:Bool)->())){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let databaseRef = Database.database().reference().child("users/profile/\(uid)")
         

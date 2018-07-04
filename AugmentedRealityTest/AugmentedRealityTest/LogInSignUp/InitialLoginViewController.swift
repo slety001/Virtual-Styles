@@ -11,36 +11,10 @@ import FirebaseAuth
 
 class InitialLoginViewController: UIViewController {
 
-    fileprivate func checkState(){
-        if (Auth.auth().currentUser != nil) {
-            DispatchQueue.main.async {
-                self.performSegue(withIdentifier: "go to menu", sender: self)
-                return
-            }
-            
-        }
-        /*let authListener = Auth.auth().addStateDidChangeListener { auth, user in
-            if user != nil {
-                Profile.observeUserProfile(user!.uid) { userProfile in
-                    Profile.currentUserProfile = userProfile
-                }
-                self.performSegue(withIdentifier: "go to menu", sender: self)
-            }
-        }*/
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        checkState()
         // Do any additional setup after loading the view.
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if (Auth.auth().currentUser != nil) {
-            self.performSegue(withIdentifier: "go to menu", sender: self)
-        }
     }
     
     override func didReceiveMemoryWarning() {
