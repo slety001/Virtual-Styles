@@ -141,7 +141,6 @@
 		01B998C920BEAACB00FA5E1D = {
 			isa = PBXGroup;
 			children = (
-				96894D1520DDAA730093F28B /* MultiPeerConn */,
 				01B998D420BEAACB00FA5E1D /* AugmentedRealityTest */,
 				01B998EB20BEAACC00FA5E1D /* AugmentedRealityTestTests */,
 				01B998F620BEAACC00FA5E1D /* AugmentedRealityTestUITests */,
@@ -164,6 +163,7 @@
 		01B998D420BEAACB00FA5E1D /* AugmentedRealityTest */ = {
 			isa = PBXGroup;
 			children = (
+				96894D1520DDAA730093F28B /* MultiPeerConn */,
 				0180BB8E20EA6175000836FB /* Menu */,
 				0180BB8D20EA6135000836FB /* Camera */,
 				96025CCF20E8377600E6DBAA /* LogInSignUp */,
@@ -233,7 +233,8 @@
 			isa = PBXGroup;
 			children = (
 			);
-			path = MultiPeerConn;
+			name = MultiPeerConn;
+			path = ../MultiPeerConn;
 			sourceTree = "<group>";
 		};
 		A70D3197B1D664FC0E26FD2C /* Pods */ = {
