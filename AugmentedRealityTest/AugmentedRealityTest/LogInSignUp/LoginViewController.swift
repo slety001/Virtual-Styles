@@ -68,26 +68,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
-    /*@IBAction func returnButtontapped(_ sender: Any) {
-        
-            emailTextField.resignFirstResponder()
-        
-    }
-    @IBAction func retrnButoonPassTapped(_ sender: UITextField) {
-        passwordTextField.resignFirstResponder()
-    }
     
-    private func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == emailTextField {
-            textField.resignFirstResponder()
-            return false
-        }
-        if textField == passwordTextField{
-            textField.resignFirstResponder()
-            return false
-        }
-        return true
-    }*/
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
