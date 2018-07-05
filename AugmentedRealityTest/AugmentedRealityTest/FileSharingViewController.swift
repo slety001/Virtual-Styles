@@ -7,73 +7,84 @@
 //
 
 import UIKit
+import MultipeerConnectivity
 
 class FileSharingViewController: UIViewController {
-    @IBOutlet weak var fileTableView: UITableView!
-    var documentsDirectory : NSString?
+    @IBOutlet weak var imageView: UIImageView!
+    var allPeers : [MCPeerID]?
     var appDelegate : AppDelegate?
-    var arrFiles : NSMutableArray?
-    var selectedFile : NSString?
-    var selectedRow : NSInteger?
+    var imagePicker : UIImagePickerController?
+    
+
+    @IBAction func send(_ sender: Any) {
+        print(imageView.image.debugDescription)
+        if(allPeers?.isEmpty)!{
+            let alert = UIAlertController(title: "Youre not connected to another peer yet :/ ", message: "Connect to Peer and Pick an Image before tryin to send!", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
+        }else{
+            if(imageView.image==nil){
+                let alert = UIAlertController(title: "No image picked yet :/ ", message: "Pick an Image      before tryin to send!", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }else{
+                do{
+                    try sendImage()
+                }catch{
+                    
+                }
+            }
+        }
+    }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        imageView.image = nil
+    }
+    @IBAction func uploadButTest(_ sender: UIButton) {
+        imagePicker?.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(imagePicker!, animated: true, completion: nil)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         appDelegate = UIApplication.shared.delegate as? AppDelegate
-        
-        self.copySampleFilesToDocDirIfNeeded()
-        arrFiles = self.getAllDocDirFiles() as? NSMutableArray
-        fileTableView.delegate = self
-        fileTableView.dataSource = self
-        fileTableView.reloadData()
+        allPeers = appDelegate?.mcManager?.session?.connectedPeers
+        imagePicker = UIImagePickerController()
+        imagePicker?.delegate = self
+        imagePicker?.allowsEditing = true
+        imagePicker?.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(imagePicker!, animated: true, completion: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.didReceiveDataWithNotification(notification:)), name: NSNotification.Name(rawValue: "MCDidReceiveDataNotification"), object: nil)
         // Do any additional setup after loading the view.
+    }
+    func sendImage()throws{
+        let image : UIImage = imageView.image!
+        let imageData : Data = UIImagePNGRepresentation(image)!
+        
+        try appDelegate?.mcManager?.session?.send(imageData , toPeers: allPeers!, with: MCSessionSendDataMode.reliable)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    func getAllDocDirFiles()-> NSArray{
-        var allFiles : NSArray
-        let fileManager : FileManager = FileManager.default
-        do {
-            try  allFiles = fileManager.contentsOfDirectory(atPath: documentsDirectory! as String) as NSArray
-        } catch {
-            let nserror = error as NSError
-            fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            
-        }
-        return allFiles
-    }
-    
-    func copySampleFilesToDocDirIfNeeded(){
-        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        documentsDirectory = paths[0] as NSString
-        let file1Path = documentsDirectory?.appendingPathComponent("sample_file1.txt")
-        let file2Path = documentsDirectory?.appendingPathComponent("sample_file2.txt")
+    @objc func didReceiveDataWithNotification(notification : NSNotification){
+        let peerID : MCPeerID = notification.userInfo!["peerID"] as! MCPeerID
+        let receivedData : NSData = notification.userInfo!["data"] as! NSData
+        let receivedImage : UIImage = UIImage.init(data: receivedData as Data, scale: UIScreen.main.scale)!
         
-        let fileManager : FileManager = FileManager.default
         
-        if(!fileManager.fileExists(atPath: file1Path!)||fileManager.fileExists(atPath: file2Path!)){
-            do {
-                try fileManager.copyItem(atPath: Bundle.main.path(forResource: "sample_file1", ofType: "txt")!, toPath: file1Path!)
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-            do {
-                try fileManager.copyItem(atPath: Bundle.main.path(forResource: "sample_file2", ofType: "txt")!, toPath: file2Path!)
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-            
-        }
-        
+        UIImageWriteToSavedPhotosAlbum(receivedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
         
         
     }
-    
-
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            print("Error Saving ARKit Scene \(error)")
+        } else {
+            print("ARKit Scene Successfully Saved")
+        }
+    }
     /*
     // MARK: - Navigation
 
@@ -85,65 +96,18 @@ class FileSharingViewController: UIViewController {
     */
 
 }
-extension FileSharingViewController: UITableViewDelegate, UITableViewDataSource, UIActionSheetDelegate{
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //
-        return (arrFiles?.count)!
-    }
-    private func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> Float {
-        //
-        return 60.0
+extension FileSharingViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            //imageView.contentMode = .scaleToFill
+            imageView.image = pickedImage
+        }
+        picker.dismiss(animated: true, completion: nil)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //
-        var cell : UITableViewCell?
-        if (cell == nil){
-            cell = UITableViewCell.init(style: .default, reuseIdentifier: "CellIdentifier")
-            cell?.accessoryType = UITableViewCellAccessoryType.disclosureIndicator
-        }
-        cell?.textLabel?.text = arrFiles?.object(at: indexPath.row) as? String
-        
-        return cell!
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
     }
-    func tableView(_ tableView: UITableView, didDeselectRowAt indexPath: IndexPath) {
-        selectedFile = arrFiles?.object(at: indexPath.row) as? NSString
-        
-        //let confirmSending = UIActionSheet.init(title: selectedFile, delegate: self, cancelButtonTitle: nil, destructiveButtonTitle: nil, otherButtonTitle: nil)
-        let alertController = UIAlertController(title: nil, message: "myMessage", preferredStyle: .actionSheet)
-        let cancelAction = UIAlertAction(title: "cancel", style: .cancel){ (action) in
-            alertController.removeFromParentViewController()
-        }
-        alertController.addAction(cancelAction)
-        
-        
-        let peers = appDelegate?.mcManager?.session?.connectedPeers
-        var index : Int = 0
-        for peer in peers!{
-            
-            let peerAction = UIAlertAction(title: peer.displayName, style: .default){ (action) in
-                if(index != peers?.count){
-                    let filePath = self.documentsDirectory?.appending(self.selectedFile as! String)
-                    let modifiedName = (self.appDelegate?.mcManager?.peerID?.displayName)! + "_" + String(self.selectedFile!)
-                    let resourceURL = NSURL.fileURL(withPath: filePath!)
-                    
-                    DispatchQueue.main.async {
-                        let progress : Progress = (self.appDelegate?.mcManager?.session?.sendResource(at: resourceURL, withName: modifiedName, toPeer: peer, withCompletionHandler: nil))!
-                        
-                    }
-                    
-                }
-            }
-            alertController.addAction(peerAction)
-            index += 1
-        }
-        self.present(alertController, animated: true, completion: nil)
-        selectedFile = arrFiles?.object(at: indexPath.row) as? NSString
-        selectedRow = indexPath.row
-        
-    }
-    
 }
