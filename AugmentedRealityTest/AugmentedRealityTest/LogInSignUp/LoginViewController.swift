@@ -60,23 +60,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.resignFirstResponder()
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>,
+    @IBAction func passwordTextFieldReturnTaped(_ sender: Any) {
+        passwordTextField.resignFirstResponder()
+    }
+    
+    
+    /*override func touchesBegan(_ touches: Set<UITouch>,
                                with event: UIEvent?) {
         self.emailTextField.endEditing(true)
         self.passwordTextField.endEditing(true)
     }
-    
-    func textFieldShouldReturn(emailTextField: UITextField) -> Bool {
-        
-        emailTextField.resignFirstResponder()
-        
-        //or
-        //self.view.endEditing(true)
-        
-        return true
-    }
-    
-    
+    */
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
