@@ -40,6 +40,8 @@
 		FA59CEBF20ECD8C700371C20 /* FileSharingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59CEBE20ECD8C700371C20 /* FileSharingViewController.swift */; };
 		FA59CEC120ECD8E500371C20 /* ChatBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59CEC020ECD8E500371C20 /* ChatBoxViewController.swift */; };
 		FA59CEC520ECEB7000371C20 /* MCManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA59CEC420ECEB7000371C20 /* MCManager.swift */; };
+		FA59CED020EE57FC00371C20 /* sample_file1.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA59CECF20EE57FC00371C20 /* sample_file1.txt */; };
+		FA59CED220EE582C00371C20 /* sample_file2.txt in Resources */ = {isa = PBXBuildFile; fileRef = FA59CED120EE582C00371C20 /* sample_file2.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +105,8 @@
 		FA59CEBE20ECD8C700371C20 /* FileSharingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FileSharingViewController.swift; path = AugmentedRealityTest/FileSharingViewController.swift; sourceTree = SOURCE_ROOT; };
 		FA59CEC020ECD8E500371C20 /* ChatBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ChatBoxViewController.swift; path = AugmentedRealityTest/ChatBoxViewController.swift; sourceTree = SOURCE_ROOT; };
 		FA59CEC420ECEB7000371C20 /* MCManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MCManager.swift; path = AugmentedRealityTest/MCManager.swift; sourceTree = SOURCE_ROOT; };
+		FA59CECF20EE57FC00371C20 /* sample_file1.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample_file1.txt; sourceTree = "<group>"; };
+		FA59CED120EE582C00371C20 /* sample_file2.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = sample_file2.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,7 +165,7 @@
 				01B998D320BEAACB00FA5E1D /* Products */,
 				A70D3197B1D664FC0E26FD2C /* Pods */,
 				09BFD49B9DC16C229D740CA7 /* Frameworks */,
-				FA59CEC620ECFDDE00371C20 /* Recovered References */,
+				FA59CEC620ECFDDE00371C20 /* MultipeerConnectivity */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,6 +196,8 @@
 				FA59CEBA20EBCF8500371C20 /* VirtualPlane.swift */,
 				01B998E320BEAACC00FA5E1D /* Info.plist */,
 				966B4FAD20DDB0860020E3D7 /* GoogleService-Info.plist */,
+				FA59CECF20EE57FC00371C20 /* sample_file1.txt */,
+				FA59CED120EE582C00371C20 /* sample_file2.txt */,
 			);
 			path = AugmentedRealityTest;
 			sourceTree = "<group>";
@@ -259,7 +265,7 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FA59CEC620ECFDDE00371C20 /* Recovered References */ = {
+		FA59CEC620ECFDDE00371C20 /* MultipeerConnectivity */ = {
 			isa = PBXGroup;
 			children = (
 				FA59CEC420ECEB7000371C20 /* MCManager.swift */,
@@ -267,7 +273,7 @@
 				FA59CEBC20ECD87600371C20 /* ConnectionsViewController.swift */,
 				FA59CEC020ECD8E500371C20 /* ChatBoxViewController.swift */,
 			);
-			name = "Recovered References";
+			name = MultipeerConnectivity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,8 +388,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				01B998D820BEAACB00FA5E1D /* art.scnassets in Resources */,
+				FA59CED220EE582C00371C20 /* sample_file2.txt in Resources */,
 				01B998E220BEAACC00FA5E1D /* LaunchScreen.storyboard in Resources */,
 				01C1258520E65BCC005B6F0B /* Login.storyboard in Resources */,
+				FA59CED020EE57FC00371C20 /* sample_file1.txt in Resources */,
 				966B4FAE20DDB0860020E3D7 /* GoogleService-Info.plist in Resources */,
 				96025CCC20E808E100E6DBAA /* Assets.xcassets in Resources */,
 				01B998DD20BEAACC00FA5E1D /* Main.storyboard in Resources */,

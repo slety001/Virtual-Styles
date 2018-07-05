@@ -20,15 +20,23 @@ class MCManager: NSObject, MCSessionDelegate{
         session = nil
         browser = nil
         advertiser = nil
-        
-        
+  
     }
     func session(_ session: MCSession, peer peerID: MCPeerID, didChange state: MCSessionState) {
-        print("")
+        let dict : NSDictionary = ["peerID": peerID,
+            "state" : state]
+            
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "MCDidChangeStateNotification"), object: nil, userInfo: dict as? [AnyHashable : Any])
+        
     }
     
     func session(_ session: MCSession, didReceive data: Data, fromPeer peerID: MCPeerID) {
-        print("")
+        let dict : NSDictionary = ["data": data,
+                                   "peerID" : peerID]
+        
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "MCReceiveDataNotification"), object: nil, userInfo: dict as? [AnyHashable : Any])
+        
+        
     }
     
     func session(_ session: MCSession, didReceive stream: InputStream, withName streamName: String, fromPeer peerID: MCPeerID) {
@@ -48,11 +56,18 @@ class MCManager: NSObject, MCSessionDelegate{
         session?.delegate = self
     }
     func setupMCBrowser(){
+        print("setupBrowser")
         browser = MCBrowserViewController.init(serviceType: "chat-files", session: self.session!)
     }
     func advertiseSelf(shouldAdvertise: Bool){
+        print("advertise - shouldAdvertise : " , shouldAdvertise)
         if(shouldAdvertise){
             advertiser = MCAdvertiserAssistant.init(serviceType: "chat-files", discoveryInfo: nil, session: self.session!)
+            advertiser?.start()
+            
+        }else{
+            advertiser?.stop()
+            advertiser = nil
         }
     }
 
