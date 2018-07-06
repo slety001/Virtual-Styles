@@ -161,6 +161,7 @@
 				01B998D320BEAACB00FA5E1D /* Products */,
 				A70D3197B1D664FC0E26FD2C /* Pods */,
 				09BFD49B9DC16C229D740CA7 /* Frameworks */,
+				FA59CEC620ECFDDE00371C20 /* MultipeerConnectivity */,
 			);
 			sourceTree = "<group>";
 		};
@@ -245,18 +246,6 @@
 			path = LogInSignUp;
 			sourceTree = "<group>";
 		};
-		96894D1520DDAA730093F28B /* MultiPeerConn */ = {
-			isa = PBXGroup;
-			children = (
-				FA59CEBC20ECD87600371C20 /* ConnectionsViewController.swift */,
-				FA59CEBE20ECD8C700371C20 /* FileSharingViewController.swift */,
-				FA59CEC020ECD8E500371C20 /* ChatBoxViewController.swift */,
-				FA59CEC420ECEB7000371C20 /* MCManager.swift */,
-			);
-			name = MultiPeerConn;
-			path = ../MultiPeerConn;
-			sourceTree = "<group>";
-		};
 		A70D3197B1D664FC0E26FD2C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +257,17 @@
 				79AC2310894F7928C53D6DD5 /* Pods-AugmentedRealityTestUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		FA59CEC620ECFDDE00371C20 /* MultipeerConnectivity */ = {
+			isa = PBXGroup;
+			children = (
+				FA59CEC420ECEB7000371C20 /* MCManager.swift */,
+				FA59CEBE20ECD8C700371C20 /* FileSharingViewController.swift */,
+				FA59CEBC20ECD87600371C20 /* ConnectionsViewController.swift */,
+				FA59CEC020ECD8E500371C20 /* ChatBoxViewController.swift */,
+			);
+			name = MultipeerConnectivity;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -691,7 +691,7 @@
 				INFOPLIST_FILE = AugmentedRealityTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sl.AugmentedRealityTest;
+				PRODUCT_BUNDLE_IDENTIFIER = AugmentedRealityTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -708,7 +708,7 @@
 				INFOPLIST_FILE = AugmentedRealityTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = sl.AugmentedRealityTest;
+				PRODUCT_BUNDLE_IDENTIFIER = AugmentedRealityTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

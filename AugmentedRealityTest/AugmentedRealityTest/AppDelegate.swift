@@ -12,14 +12,19 @@ import Firebase
 import FirebaseAuth
 import MultipeerConnectivity
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mcManager : MCManager?
+    
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
-        mcManager = MCManager.init()
+        if(mcManager == nil){
+            mcManager = MCManager.init()
+        }
         //UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
         //let authListener
            _ = Auth.auth().addStateDidChangeListener { auth, user in
