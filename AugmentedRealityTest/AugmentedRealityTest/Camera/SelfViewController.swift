@@ -26,7 +26,11 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
     var bubbles = [String](arrayLiteral: "BubbleCollection/bubbleDrawnBubble","BubbleCollection/bubbleGreenBackground","BubbleCollection/thinkBubble")
     
     @IBOutlet weak var viewModeARSCN: ARSCNView!
-
+    @IBAction func takePhoto(_ sender: UIButton) {
+        print("snapShot")
+        let snapShot = self.viewModeARSCN.snapshot()
+        UIImageWriteToSavedPhotosAlbum(snapShot, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var scanTimer: Timer?
@@ -412,5 +416,16 @@ extension SelfViewController {
         let moveAction = SCNAction.move(to: SCNVector3(CGFloat(plane.worldPosition.x),CGFloat(plane.worldPosition.y),CGFloat(plane.worldPosition.z)), duration: 0.07)
         self.petNode.runAction(moveAction)
         self.petNode.isHidden = false
+    }
+}
+extension SelfViewController : UIImagePickerControllerDelegate{
+
+    
+    @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        if let error = error {
+            print("Error Saving ARKit Scene \(error)")
+        } else {
+            print("ARKit Scene Successfully Saved")
+        }
     }
 }

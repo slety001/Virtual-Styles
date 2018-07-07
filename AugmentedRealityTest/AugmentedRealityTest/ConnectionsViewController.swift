@@ -35,14 +35,13 @@ class ConnectionsViewController: UIViewController{
     @IBAction func disconnect(_ sender: Any) {
         print("disconnect")
         appDelegate?.mcManager?.session?.disconnect()
-        nameTextField.isEnabled = true
         arrConnectedDevices?.removeAllObjects()
         peersTableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        nameTextField.delegate = self
+        
         appDelegate = UIApplication.shared.delegate as? AppDelegate
         
     appDelegate?.mcManager?.setupPeerAndSessionWithDisplayName(displayName: UIDevice.current.name)
