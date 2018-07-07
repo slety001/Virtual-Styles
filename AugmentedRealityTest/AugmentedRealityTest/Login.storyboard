@@ -245,18 +245,27 @@
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="usernameTextFieldReturnTaped:" destination="rck-zA-UMM" eventType="primaryActionTriggered" id="i6l-fM-yea"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="email" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ytw-D9-ShS">
                                                 <rect key="frame" x="0.0" y="50" width="150" height="35"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="emailTextFieldReturnTap:" destination="rck-zA-UMM" eventType="primaryActionTriggered" id="wME-k2-vrc"/>
+                                                </connections>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iQC-dy-mAG">
                                                 <rect key="frame" x="0.0" y="100" width="150" height="40"/>
                                                 <nil key="textColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="passwordTextFieldReturnTap:" destination="rck-zA-UMM" eventType="primaryActionTriggered" id="Yfc-JT-Ic0"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </stackView>

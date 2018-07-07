@@ -85,6 +85,17 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         self.present(alert, animated: true, completion: nil)
     }
                         
+    @IBAction func usernameTextFieldReturnTaped(_ sender: Any) {
+        userNameTextField.resignFirstResponder()
+    }
+    
+    @IBAction func emailTextFieldReturnTap(_ sender: Any) {
+        emailField.resignFirstResponder()
+    }
+    
+    @IBAction func passwordTextFieldReturnTap(_ sender: Any) {
+        passwordField.resignFirstResponder()
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
