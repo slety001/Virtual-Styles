@@ -19,6 +19,5 @@ extension HatData {
 
     @NSManaged public var uid: String?
     @NSManaged public var url: String?
-    @NSManaged public var belongs: UserData?
 
 }

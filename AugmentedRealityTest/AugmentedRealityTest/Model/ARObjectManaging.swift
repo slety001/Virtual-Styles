@@ -13,10 +13,6 @@ import CoreData
 class ARObjectManaging {
     
     var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    var arObject1 = Pet()
-    var arObject2 = Hat()
-    var arObject3 = Bubble()
 
     func fetch() {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PetData")
@@ -31,9 +27,9 @@ class ARObjectManaging {
         do {
             let result = try context.fetch(request)
             if result.count > 0 {
-                for online in result {
-                    let uid = (online as AnyObject).value(forKey: "uid") as! String
-                    let url = (online as AnyObject).value(forKey: "url") as! String
+                for line in result {
+                    let uid = (line as AnyObject).value(forKey: "uid") as! String
+                    let url = (line as AnyObject).value(forKey: "url") as! String
                     
                     outputStr += uid + " " + url + " " + "\n"
                 }
@@ -44,17 +40,5 @@ class ARObjectManaging {
         } catch {
             print(error)
         }
-    }
-    
-    func addPet(){
-        var object = Pet()
-    }
-    
-    func addHat(){
-        var object = Hat()
-    }
-    
-    func addBubble(){
-        var object = Bubble()
     }
 }

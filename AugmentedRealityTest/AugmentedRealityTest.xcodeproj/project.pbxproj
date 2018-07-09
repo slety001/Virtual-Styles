@@ -19,9 +19,6 @@
 		01C1258520E65BCC005B6F0B /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01C1258420E65BCC005B6F0B /* Login.storyboard */; };
 		01C1258820E6667E005B6F0B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1258720E6667E005B6F0B /* User.swift */; };
 		01C1258C20E690B6005B6F0B /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1258B20E690B6005B6F0B /* MenuViewController.swift */; };
-		01DD164020ECF6FD0022787B /* Bubble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD163F20ECF6FD0022787B /* Bubble.swift */; };
-		01DD164220ECF7F10022787B /* Hat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD164120ECF7F10022787B /* Hat.swift */; };
-		01DD164420ECF7FF0022787B /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01DD164320ECF7FF0022787B /* Pet.swift */; };
 		83EC14B023912914099A1D80 /* Pods_AugmentedRealityTestTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AD1191C4E008DD945A0F3D1A /* Pods_AugmentedRealityTestTests.framework */; };
 		89AA9012778C88A6895F43D1 /* Pods_AugmentedRealityTestUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4E0B9AD4724EF4EB010E266 /* Pods_AugmentedRealityTestUITests.framework */; };
 		96025CCA20E7CE0500E6DBAA /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96025CC920E7CE0500E6DBAA /* Profile.swift */; };
@@ -29,7 +26,6 @@
 		96025CD120E8385B00E6DBAA /* InitialLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96025CD020E8385B00E6DBAA /* InitialLoginViewController.swift */; };
 		96025CD720E846DA00E6DBAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96025CD620E846DA00E6DBAA /* LoginViewController.swift */; };
 		96025CD920E846F000E6DBAA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96025CD820E846F000E6DBAA /* SignupViewController.swift */; };
-		961DDA6520F15C3F00DAC10C /* AppARObjectType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DDA6420F15C3F00DAC10C /* AppARObjectType.swift */; };
 		961DDA6720F16A6B00DAC10C /* ARObjectManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DDA6620F16A6B00DAC10C /* ARObjectManaging.swift */; };
 		961DDA6C20F21AFA00DAC10C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 961DDA6A20F21AFA00DAC10C /* DataModel.xcdatamodeld */; };
 		961DDA7620F2425900DAC10C /* PetData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DDA6E20F2425900DAC10C /* PetData+CoreDataClass.swift */; };
@@ -90,9 +86,6 @@
 		01C1258420E65BCC005B6F0B /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
 		01C1258720E6667E005B6F0B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		01C1258B20E690B6005B6F0B /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
-		01DD163F20ECF6FD0022787B /* Bubble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bubble.swift; sourceTree = "<group>"; };
-		01DD164120ECF7F10022787B /* Hat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hat.swift; sourceTree = "<group>"; };
-		01DD164320ECF7FF0022787B /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		0591E3AE8DD0E508212FB53B /* Pods-AugmentedRealityTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedRealityTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugmentedRealityTestTests/Pods-AugmentedRealityTestTests.release.xcconfig"; sourceTree = "<group>"; };
 		25BF81353661DCE6AA173DD0 /* Pods_AugmentedRealityTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugmentedRealityTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79AC2310894F7928C53D6DD5 /* Pods-AugmentedRealityTestUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedRealityTestUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugmentedRealityTestUITests/Pods-AugmentedRealityTestUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -102,7 +95,6 @@
 		96025CD020E8385B00E6DBAA /* InitialLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLoginViewController.swift; sourceTree = "<group>"; };
 		96025CD620E846DA00E6DBAA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96025CD820E846F000E6DBAA /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		961DDA6420F15C3F00DAC10C /* AppARObjectType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppARObjectType.swift; sourceTree = "<group>"; };
 		961DDA6620F16A6B00DAC10C /* ARObjectManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARObjectManaging.swift; sourceTree = "<group>"; };
 		961DDA6B20F21AFA00DAC10C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		961DDA6E20F2425900DAC10C /* PetData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetData+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -245,10 +237,6 @@
 			children = (
 				01C1258720E6667E005B6F0B /* User.swift */,
 				96025CC920E7CE0500E6DBAA /* Profile.swift */,
-				01DD163F20ECF6FD0022787B /* Bubble.swift */,
-				01DD164120ECF7F10022787B /* Hat.swift */,
-				01DD164320ECF7FF0022787B /* Pet.swift */,
-				961DDA6420F15C3F00DAC10C /* AppARObjectType.swift */,
 				961DDA6620F16A6B00DAC10C /* ARObjectManaging.swift */,
 			);
 			path = Model;
@@ -554,8 +542,6 @@
 				01B998DA20BEAACB00FA5E1D /* SelfViewController.swift in Sources */,
 				961DDA6C20F21AFA00DAC10C /* DataModel.xcdatamodeld in Sources */,
 				01B998D620BEAACB00FA5E1D /* AppDelegate.swift in Sources */,
-				961DDA6520F15C3F00DAC10C /* AppARObjectType.swift in Sources */,
-				01DD164220ECF7F10022787B /* Hat.swift in Sources */,
 				961DDA7620F2425900DAC10C /* PetData+CoreDataClass.swift in Sources */,
 				964D89F120F3623D0084DDFF /* HatData+CoreDataClass.swift in Sources */,
 				FA01B67E20DFCAC0005353B0 /* CustomCell.swift in Sources */,
@@ -564,8 +550,6 @@
 				01C1258820E6667E005B6F0B /* User.swift in Sources */,
 				FA59CEBB20EBCF8500371C20 /* VirtualPlane.swift in Sources */,
 				96025CCA20E7CE0500E6DBAA /* Profile.swift in Sources */,
-				01DD164020ECF6FD0022787B /* Bubble.swift in Sources */,
-				01DD164420ECF7FF0022787B /* Pet.swift in Sources */,
 				96025CD720E846DA00E6DBAA /* LoginViewController.swift in Sources */,
 				964D89F220F3623D0084DDFF /* HatData+CoreDataProperties.swift in Sources */,
 				961DDA7920F2425900DAC10C /* UserData+CoreDataProperties.swift in Sources */,

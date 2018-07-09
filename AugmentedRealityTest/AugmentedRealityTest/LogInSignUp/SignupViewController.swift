@@ -39,7 +39,7 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                             self.saveUserToDatabase(username : username){ success in
                                 if success {
                                     
-                                    let dict = ["uid" : UUID().uuidString, "name" : self.userNameTextField.text!, "email" : self.emailField.text!, "password" : self.passwordField.text!] as [String : Any]
+                                    let dict = ["uid" : UUID().uuidString, "name" : self.userNameTextField.text!, "email" : self.emailField.text!, "password" : self.passwordField.text!, "profileUrl" : ""] as [String : Any]
                                     
                                     DataBaseHelper.shareInstance.saveUser(object: dict as! [String : String])
                                     

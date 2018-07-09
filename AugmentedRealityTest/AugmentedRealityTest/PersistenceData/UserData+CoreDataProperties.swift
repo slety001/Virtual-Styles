@@ -22,9 +22,6 @@ extension UserData {
     @NSManaged public var email: String?
     @NSManaged public var password: String?
     @NSManaged public var profileUrl: String?
-    @NSManaged public var hasHats: NSSet?
-    @NSManaged public var hasBubbles: NSSet?
-    @NSManaged public var hasPets: NSSet?
 
 }
 
