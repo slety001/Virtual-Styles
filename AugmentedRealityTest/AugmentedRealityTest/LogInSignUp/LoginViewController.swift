@@ -64,14 +64,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.resignFirstResponder()
     }
     
-    
-    /*override func touchesBegan(_ touches: Set<UITouch>,
-                               with event: UIEvent?) {
-        self.emailTextField.endEditing(true)
-        self.passwordTextField.endEditing(true)
-    }
-    */
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -85,7 +77,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         emailTextField.resignFirstResponder()
-        passwordTextField.resignFirstResponder()
     }
 
     

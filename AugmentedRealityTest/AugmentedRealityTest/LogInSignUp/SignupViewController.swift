@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import CoreData
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
     
@@ -37,6 +38,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                             print("User display name changed")
                             self.saveUserToDatabase(username : username){ success in
                                 if success {
+                                    
+                                    let dict = ["uid" : UUID().uuidString, "name" : self.userNameTextField.text!, "email" : self.emailField.text!, "password" : self.passwordField.text!] as [String : Any]
+                                    
+                                    DataBaseHelper.shareInstance.saveUser(object: dict as! [String : String])
+                                    
                                     self.dismiss(animated: true, completion: nil)
                                 } else {
                                     print("faild")
@@ -47,11 +53,9 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
                             print("1")
                             print("Error: \(error!.localizedDescription)")
                         }
-                    print("2")
                     //self.signUpError()
                     }
                 } else {
-                    print("3")
                     //self.signUpError()
                 }
             } 

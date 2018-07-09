@@ -8,12 +8,13 @@
 
 import Foundation
 
-class Bubble{
+struct Bubble {
     
-    var bubbleURL : String
+    let type = AppARObjectType.Bubble
     
-    init(bubbleURL : String) {
-        self.bubbleURL = bubbleURL
-    }
+    let bubbleUID = UUID().uuidString
+    let bubbleURL = (arrayLiteral: "BubbleCollection/bubbleDrawnBubble","BubbleCollection/bubbleGreenBackground","BubbleCollection/thinkBubble")
     
 }
+
+

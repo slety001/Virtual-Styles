@@ -9,6 +9,7 @@
 import UIKit
 import ARKit
 import FirebaseAuth
+import CoreData
 
 class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -27,7 +28,8 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 let initialViewController = storyboard.instantiateInitialViewController()
                 self.present(initialViewController!, animated: true, completion: nil)
             }
-            catch {
+            catch let error{
+                print("Sign out error \(error.localizedDescription)")
             }
         }
     }
@@ -42,6 +44,8 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.arscnView?.delegate = self
         // Create a session configuration
         imageView.layer.cornerRadius = 30
+        
+        
         
         let activityIndicator = UIActivityIndicatorView()
         view.addSubview(activityIndicator)

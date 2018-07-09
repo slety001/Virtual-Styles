@@ -12,9 +12,11 @@ class User {
     
     var uid : String
     var username : String
+    var profileImgUrl : String?
     
-    init(uid : String, username : String) {
+    init(uid : String, username : String, profileImgUrl : String?) {
         self.uid = uid
         self.username = username
+        self.profileImgUrl = profileImgUrl
     }
 }

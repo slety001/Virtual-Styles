@@ -11,19 +11,19 @@ import FirebaseDatabase
 
 class Profile {
     
-    static var currentUserProfile:User?
+    static var currentUserProfile : User?
     
-    static func observeUserProfile(_ uid:String, completion: @escaping ((_ userProfile : User?)->())) {
+    static func observeUserProfile(_ uid : String, completion: @escaping ((_ userProfile : User?)->())) {
         let userRef = Database.database().reference().child("users/profile/\(uid)")
         
         userRef.observe(.value, with: { snapshot in
-            var userProfile:User?
+            var userProfile : User?
             
-            if let dict = snapshot.value as? [String:Any],
-                let username = dict["username"] as? String
-            {
+            if let dict = snapshot.value as? [String :  Any],
+                let username = dict["username"] as? String,
+                let profileImgUrl = dict["profileImgUrl"] as? String {
                 
-                userProfile = User(uid: snapshot.key, username : username) 
+                userProfile = User (uid : snapshot.key, username : username, profileImgUrl : profileImgUrl)
             }
             
             completion(userProfile)

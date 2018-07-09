@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14135" systemVersion="17F77" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="BubbleData" representedClassName=".BubbleData" syncable="YES">
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserData" inverseName="hasBubbles" inverseEntity="UserData" syncable="YES"/>
+    </entity>
+    <entity name="HatData" representedClassName=".HatData" syncable="YES">
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserData" inverseName="hasHats" inverseEntity="UserData" syncable="YES"/>
+    </entity>
+    <entity name="PetData" representedClassName=".PetData" syncable="YES">
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="url" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="belongs" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserData" inverseName="hasPets" inverseEntity="UserData" syncable="YES"/>
+    </entity>
+    <entity name="UserData" representedClassName=".UserData" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="profileUrl" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="hasBubbles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="BubbleData" inverseName="belongs" inverseEntity="BubbleData" syncable="YES"/>
+        <relationship name="hasHats" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="HatData" inverseName="belongs" inverseEntity="HatData" syncable="YES"/>
+        <relationship name="hasPets" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="PetData" inverseName="belongs" inverseEntity="PetData" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="HatData" positionX="25" positionY="-322" width="128" height="88"/>
+        <element name="BubbleData" positionX="124" positionY="-207" width="128" height="88"/>
+        <element name="PetData" positionX="72" positionY="-16" width="128" height="88"/>
+        <element name="UserData" positionX="-207" positionY="-91" width="128" height="163"/>
+    </elements>
+</model>
