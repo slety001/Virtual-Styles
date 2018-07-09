@@ -26,6 +26,21 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
         userNameTextField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
+        let text = SCNText(string: " You didn`t sign up for it yet ???", extrusionDepth: 2)
+        
+        // creates material object, sets color, assigns material to text
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.green
+        text.materials = [material]
+        
+        // creates node, sets position, scales size of text, sets textgeometry to node
+        let node = SCNNode()
+        node.position = SCNVector3(x: -7.5, y:1, z: -15)
+        node.scale = SCNVector3(x: 0.1, y: 0.1, z: 0.1)
+        node.geometry = text
+        
+        // adds node to view, enable lighting to display shadows
+        arscnView.scene.rootNode.addChildNode(node)
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

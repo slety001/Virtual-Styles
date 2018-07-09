@@ -25,6 +25,21 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
+        let text = SCNText(string: " almost there :)", extrusionDepth: 2)
+        
+        // creates material object, sets color, assigns material to text
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.green
+        text.materials = [material]
+        
+        // creates node, sets position, scales size of text, sets textgeometry to node
+        let node = SCNNode()
+        node.position = SCNVector3(x: -10, y:0.5, z: -5)
+        node.scale = SCNVector3(x: 0.1, y: 0.1, z: 0.1)
+        node.geometry = text
+        
+        // adds node to view, enable lighting to display shadows
+        arscnView.scene.rootNode.addChildNode(node)
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
