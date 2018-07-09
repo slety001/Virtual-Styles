@@ -10,8 +10,6 @@ import UIKit
 import FirebaseAuth
 
 class InitialLoginViewController: UIViewController {
-
-    let fu = ARObjectManaging()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,12 +20,7 @@ class InitialLoginViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
-    @IBAction func test(_ sender: UIButton) {
-        fu.p()
-        print(fu.arObject1, fu.arObject2, fu.arObject3)
-    }
+  
     /*
     // MARK: - Navigation
 
