@@ -208,6 +208,9 @@ class WorldViewController: UIViewController, ARSCNViewDelegate {
                             if(faceRectVector.x != 0 && faceRectVector.y != 0 && faceRectVector.z != 0){
                                 
                                 if(self.hatNode.childNodes.isEmpty == false){
+                                    //var angles = self.viewModeARSCN.session.currentFrame?.camera.eulerAngles
+                                    
+                                    
                                     let moveAction = SCNAction.move(to: SCNVector3(faceRectVector.x,faceRectVector.y,faceRectVector.z), duration: 0.07)
                                     self.hatNode.isHidden = false
                                     self.hatNode.runAction(moveAction)
