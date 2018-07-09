@@ -54,6 +54,9 @@ class CustomCell: UICollectionViewCell {
         else if(modelSourcePath.contains("pet")){
             print("adding Pet: "+modelSourcePath)
             selfView.addPet(path : modelSourcePath)
+        }else if(modelSourcePath.starts(with: "remove")){
+            selfView.removeModel()
+            
         }else{
             print("adding Model: "+modelSourcePath)
             selfView.addModel(path : modelSourcePath)

@@ -16,14 +16,17 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
     
     var fileManager : FileManager!
     
-    var hats = [String](arrayLiteral: "art.scnassets/Hats/Cap/hatCap.scn","art.scnassets/Hats/CaptainHat/hatCaptainHat.scn","art.scnassets/Hats/CowboyHat/hatCowboyHat.scn", "art.scnassets/Hats/SantaHat/hatSantaHat.scn")
-    var pets = [String](arrayLiteral: "art.scnassets/Pets/Baymax/petBaymax.scn","art.scnassets/Pets/Butterfly/petButterfly.scn","art.scnassets/Pets/Deer/petDeer.scn","art.scnassets/Pets/Fly/petFly.scn","art.scnassets/Pets/Ship/petJetPilot.scn")
+    var hats = [String](arrayLiteral: "art.scnassets/Hats/Cap/hatCap.scn","art.scnassets/Hats/CaptainHat/hatCaptainHat.scn","art.scnassets/Hats/CowboyHat/hatCowboyHat.scn", "art.scnassets/Hats/SantaHat/hatSantaHat.scn","removeModels")
+    var pets = [String](arrayLiteral: "art.scnassets/Pets/Baymax/petBaymax.scn","art.scnassets/Pets/Butterfly/petButterfly.scn","art.scnassets/Pets/Deer/petDeer.scn","art.scnassets/Pets/Fly/petFly.scn","art.scnassets/Pets/Ship/petJetPilot.scn","removeModels")
     
     
-    var hatPreviews = [String](arrayLiteral: "HatCollectionPreviews/Cap","HatCollectionPreviews/CaptainHat","HatCollectionPreviews/CowboyHat","HatCollectionPreviews/SantaHat")
-    var petPreviews = [String](arrayLiteral: "PetCollectionPreviews/Baymax","PetCollectionPreviews/Butterfly","PetCollectionPreviews/Deer","PetCollectionPreviews/Fly","PetCollectionPreviews/JetPilot")
+    var hatPreviews = [String](arrayLiteral: "HatCollectionPreviews/Cap","HatCollectionPreviews/CaptainHat","HatCollectionPreviews/CowboyHat","HatCollectionPreviews/SantaHat","removeModels")
+    var petPreviews = [String](arrayLiteral: "PetCollectionPreviews/Baymax","PetCollectionPreviews/Butterfly","PetCollectionPreviews/Deer","PetCollectionPreviews/Fly","PetCollectionPreviews/JetPilot","removeModels")
     
-    var bubbles = [String](arrayLiteral: "BubbleCollection/bubbleDrawnBubble","BubbleCollection/bubbleGreenBackground","BubbleCollection/thinkBubble")
+    var bubbles = [String](arrayLiteral: "BubbleCollection/bubbleDrawnBubble","BubbleCollection/bubbleGreenBackground","BubbleCollection/thinkBubble","removeModels")
+    
+    var prevScaleFactor : CGFloat = 0
+    
     
     @IBOutlet weak var viewModeARSCN: ARSCNView!
     @IBAction func takePhoto(_ sender: UIButton) {
@@ -142,6 +145,8 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
     }
     
     func addBubble(image : UIImage, text : String){
+        
+        
         NSLog("text: %@", text)
         let scnText = SCNText(string: text, extrusionDepth: 0)
         
@@ -169,6 +174,26 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
  
         // adds node to view, enable lighting to display shadows
         mainScene.rootNode.addChildNode(bubbleNode)
+        
+    }
+    @IBAction func removeAllButtonAction(_ sender: Any) {
+        removeAllModels()
+    }
+    func removeAllModels(){
+        petNode.removeFromParentNode()
+        hatNode.removeFromParentNode()
+        bubbleNode.removeFromParentNode()
+    }
+    func removeModel(){
+        if(pickPetsButton.isSelected == true){
+            petNode.removeFromParentNode()
+        }
+        if(pickHatsButton.isSelected == true){
+            hatNode.removeFromParentNode()
+        }
+        if(pickBubblesButton.isSelected == true){
+            bubbleNode.removeFromParentNode()
+        }
         
     }
     func addModel(path : String) {
@@ -274,6 +299,7 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
         
         let image = CIImage.init(cvPixelBuffer: capturedImage)
         
+        
         let detectFaceRequest = VNDetectFaceRectanglesRequest { (request, error) in
             
             DispatchQueue.main.async {
@@ -295,8 +321,9 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
                             
                             let faceRectFrame = self.faceFrame(from: face.boundingBox)
                             let faceView = UIView(frame: faceRectFrame)
-                            faceView.backgroundColor = .red
+                            //faceView.backgroundColor = .red
                             
+                            var px = faceRectFrame.origin.x + faceRectFrame.width/2
                             let faceRectVector = self.doHitTest(faceRectPoint: CGPoint(x: faceRectFrame.origin.x, y: faceRectFrame.origin.y))
                             //NSLog("x: %f",faceRectVector.x)
                             //NSLog("y: %f",faceRectVector.y)
@@ -311,14 +338,21 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
                                     self.hatNode.isHidden = false
                                     self.hatNode.runAction(moveAction)
                                     let hatWidth = CGFloat(self.hatNode.boundingBox.max.x)-CGFloat(self.hatNode.boundingBox.min.x)
+                                    
                                     let scaleFactor = (faceRectFrame.width/hatWidth)*0.002
+                                    
                                     NSLog("scaleFactor : %f", scaleFactor)
+                                    NSLog("prevScaleFactor : %f", self.prevScaleFactor)
+                                    
                                     let scaleAction = SCNAction.scale(to: scaleFactor, duration: 0.07)
                                     self.hatNode.runAction(scaleAction)
+                                    
+                                    self.prevScaleFactor = scaleFactor
                                 }
                                 if(self.bubbleNode.geometry != nil){
                                     let bubbleHeight = CGFloat(self.bubbleNode.boundingBox.max.y)-CGFloat(self.bubbleNode.boundingBox.min.y)
-                                    let newY = faceRectVector.y + Float(bubbleHeight/6)
+                                    let newY = faceRectVector.y + Float(bubbleHeight/3)
+                                    
                                     let moveAction = SCNAction.move(to: SCNVector3(faceRectVector.x,newY,faceRectVector.z), duration: 0.07)
                                     self.bubbleNode.isHidden = false
                                     self.bubbleNode.runAction(moveAction)
@@ -332,7 +366,10 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
                                     let bubbleScaleAction = SCNAction.scale(to: bubbleScaleFactor, duration: 0.07)
                                     let textScaleAction = SCNAction.scale(to: textScaleFactor, duration: 0.07)
                                     self.bubbleNode.runAction(bubbleScaleAction)
+                                    
                                     self.textNode.runAction(textScaleAction)
+                                    let eulerAngles = self.viewModeARSCN.session.currentFrame?.camera.eulerAngles
+                                    self.bubbleNode.eulerAngles = SCNVector3((eulerAngles?.x)!, (eulerAngles?.y)!, (eulerAngles?.z)! + .pi / 2)
                                 }
                                 //self.viewModeARSCN.scene = self.modelScene!
                                 self.viewModeARSCN.scene = self.mainScene
@@ -422,10 +459,22 @@ extension SelfViewController : UIImagePickerControllerDelegate{
 
     
     @objc func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
+        var alertTitle : String
+        var alertText : String
         if let error = error {
+            alertTitle = "Error"
+            alertText = "Error Saving ARKit Scene :("
             print("Error Saving ARKit Scene \(error)")
         } else {
+            alertTitle = "Done"
+            alertText = "ARKit Scene Successfully Saved :)"
             print("ARKit Scene Successfully Saved")
         }
+        let alert = UIAlertController(title: alertTitle, message: alertText, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        
+        self.present(alert, animated: true)
     }
 }

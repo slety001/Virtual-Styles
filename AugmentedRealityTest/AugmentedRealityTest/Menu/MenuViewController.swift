@@ -7,10 +7,12 @@
 //
 
 import UIKit
+import ARKit
 import FirebaseAuth
 
 class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBOutlet weak var arscnView: ARSCNView!
     
     @IBOutlet weak var imageView: UIImageView!
     
@@ -29,9 +31,17 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             }
         }
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        let configuration = ARWorldTrackingConfiguration()
+        // Run the view's session
+        arscnView?.session.run(configuration)
+        self.setARSCNView(SceneView: arscnView!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.arscnView?.delegate = self
+        // Create a session configuration
+        imageView.layer.cornerRadius = 30
         
         let activityIndicator = UIActivityIndicatorView()
         view.addSubview(activityIndicator)
@@ -51,9 +61,26 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 activityIndicator.removeFromSuperview()
             }
         }
+        // creates text with depth
+        let text = SCNText(string: " WELCOME TO VirtualStylesAR !", extrusionDepth: 2)
+        
+        // creates material object, sets color, assigns material to text
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.green
+        text.materials = [material]
+        
+        // creates node, sets position, scales size of text, sets textgeometry to node
+        let node = SCNNode()
+        node.position = SCNVector3(x: -7.5, y:1, z: -10)
+        node.scale = SCNVector3(x: 0.1, y: 0.1, z: 0.1)
+        node.geometry = text
+        
+        // adds node to view, enable lighting to display shadows
+        arscnView.scene.rootNode.addChildNode(node)
  
     }
     
+    @IBOutlet weak var uploadButton: UIButton!
     @IBAction func uploadButTest(_ sender: UIButton) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -91,3 +118,10 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     */
 
 }
+extension MenuViewController : ARSCNViewDelegate{
+    public func setARSCNView(SceneView : ARSCNView){
+        self.arscnView = SceneView
+    }
+}
+
+
