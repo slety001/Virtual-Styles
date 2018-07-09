@@ -7,21 +7,33 @@
 //
 
 import UIKit
+import ARKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     
+    @IBOutlet weak var arscnView: ARSCNView!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.arscnView?.delegate = self
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailTextField.becomeFirstResponder()
+        let configuration = ARWorldTrackingConfiguration()
+        // Run the view's session
+        arscnView?.session.run(configuration)
+        self.setARSCNView(SceneView: arscnView!)
     }
 
     @IBAction func signinTaped(_ sender: UIButton) {
@@ -69,10 +81,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }    
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        emailTextField.becomeFirstResponder()
-    }
+  
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -90,4 +99,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
+}
+extension LoginViewController : ARSCNViewDelegate{
+    public func setARSCNView(SceneView : ARSCNView){
+        self.arscnView = SceneView
+    }
+    
 }
