@@ -101,14 +101,17 @@ class SelfViewController: UIViewController, UICollectionViewDataSource, UICollec
         if(pickHatsButton.isSelected){
             cell.myImage.image = UIImage(named: hatPreviews[indexPath.row])
             cell.modelSourcePath = hats[indexPath.row]
+            cell.previewSourcePath = hatPreviews[indexPath.row]
         }
         else if(pickPetsButton.isSelected){
             cell.myImage.image = UIImage(named: petPreviews[indexPath.row])
             cell.modelSourcePath = pets[indexPath.row]
+            cell.previewSourcePath = petPreviews[indexPath.row]
         }
         else if(pickBubblesButton.isSelected){
             cell.myImage.image = UIImage(named: bubbles[indexPath.row])
             cell.modelSourcePath = bubbles[indexPath.row]
+            cell.previewSourcePath = bubbles[indexPath.row]
         }
         cell.selfView = self
         return cell

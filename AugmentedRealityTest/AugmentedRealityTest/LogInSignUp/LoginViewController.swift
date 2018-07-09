@@ -30,7 +30,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 if error == nil && user != nil {
                     print("User signed in!")
                     
-                    
                     if Auth.auth().currentUser != nil{
                         self.dismiss(animated: false, completion: nil)
                     }

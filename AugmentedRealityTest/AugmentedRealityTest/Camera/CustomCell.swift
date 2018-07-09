@@ -12,6 +12,7 @@ import ARKit
 class CustomCell: UICollectionViewCell {
     @IBOutlet weak var myImage: UIImageView!
     var modelSourcePath : String!
+    var previewSourcePath : String!
     var selfView : SelfViewController!
     override var isSelected: Bool {
         didSet{
@@ -47,17 +48,30 @@ class CustomCell: UICollectionViewCell {
                 self.selfView.addBubble(image : self.myImage.image!, text : inputText)
             }))
             
-            
+            if (previewSourcePath.starts(with: "Bubble")){
+                let dict = ["uid" : UUID().uuidString, "url" : previewSourcePath] as [String : Any]
+                
+                DataBaseHelper.shareInstance.saveBubble(object: dict as! [String : String])
+            }
+
             selfView.present(alert, animated: true)
             
         }
         else if(modelSourcePath.contains("pet")){
             print("adding Pet: "+modelSourcePath)
+            if (previewSourcePath.contains("pet")){
+                let dict = ["uid" : UUID().uuidString, "url" : previewSourcePath] as [String : Any]
+                
+                DataBaseHelper.shareInstance.savePet(object: dict as! [String : String])
+            }
             selfView.addPet(path : modelSourcePath)
         }else if(modelSourcePath.starts(with: "remove")){
             selfView.removeModel()
             
         }else{
+            let dict = ["uid" : UUID().uuidString, "url" : previewSourcePath] as [String : Any]
+            
+            DataBaseHelper.shareInstance.saveHat(object: dict as! [String : String])
             print("adding Model: "+modelSourcePath)
             selfView.addModel(path : modelSourcePath)
         }
