@@ -65,6 +65,26 @@ class DataBaseHelper{
             print("saveUser error \(error.localizedDescription)")
         }
     }
+    
+    func fetch() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PetData")
+        var outputStr = ""
+        do {
+            let result = try context?.fetch(request)
+            if (result?.count)! > 0 {
+                for line in result! {
+                    let uid = (line as AnyObject).value(forKey: "uid") as! String
+                    let url = (line as AnyObject).value(forKey: "url") as! String
+                    
+                    print(outputStr += uid + " " + url + " " + "\n")
+                }
+            } else {
+                print("Empty")
+            }
+        } catch {
+            print(error)
+        }
+    }
         
 }
 
