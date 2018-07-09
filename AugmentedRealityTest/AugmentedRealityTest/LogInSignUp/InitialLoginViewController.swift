@@ -11,9 +11,10 @@ import FirebaseAuth
 
 class InitialLoginViewController: UIViewController {
 
+    let fu = ARObjectManaging()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
     }
     
@@ -23,6 +24,10 @@ class InitialLoginViewController: UIViewController {
     }
     
 
+    @IBAction func test(_ sender: UIButton) {
+        fu.p()
+        print(fu.arObject1, fu.arObject2, fu.arObject3)
+    }
     /*
     // MARK: - Navigation
 

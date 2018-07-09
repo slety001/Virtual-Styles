@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import CoreData
 
 class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -25,13 +26,16 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 let initialViewController = storyboard.instantiateInitialViewController()
                 self.present(initialViewController!, animated: true, completion: nil)
             }
-            catch {
+            catch let error{
+                print("Sign out error \(error.localizedDescription)")
             }
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         let activityIndicator = UIActivityIndicatorView()
         view.addSubview(activityIndicator)

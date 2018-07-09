@@ -10,10 +10,9 @@ import Foundation
 
 class Hat {
     
-    var hatURL : String
+    let type = AppARObjectType.Hat
     
-    init(hatURL : String) {
-        self.hatURL = hatURL
-    }
-    
+    let hatUID = UUID().uuidString
+    let hatURL = (arrayLiteral: "art.scnassets/Hats/Cap/hatCap.scn","art.scnassets/Hats/CaptainHat/hatCaptainHat.scn","art.scnassets/Hats/CowboyHat/hatCowboyHat.scn", "art.scnassets/Hats/SantaHat/hatSantaHat.scn")
+       
 }
