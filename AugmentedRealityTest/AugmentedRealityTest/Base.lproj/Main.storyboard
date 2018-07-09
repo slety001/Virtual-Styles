@@ -466,6 +466,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R6G-zZ-zVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="HMR-zY-3xi">
+                    <connections>
+                        <segue destination="zhb-yT-k8T" kind="show" id="QCM-P9-tDZ"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="Xzl-tD-yUZ">
                     <connections>
                         <segue destination="eli-Q5-eQw" kind="show" id="c43-7B-Qgm"/>
@@ -595,6 +600,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="rUD-v3-pii">
+                    <connections>
+                        <segue destination="zhb-yT-k8T" kind="show" id="pxp-tn-q99"/>
+                    </connections>
+                </swipeGestureRecognizer>
                 <swipeGestureRecognizer direction="right" id="uRE-DA-a7Y">
                     <connections>
                         <segue destination="eli-Q5-eQw" kind="show" id="2gh-jL-v9X"/>
@@ -711,6 +721,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="E3n-cU-qqs"/>
-        <segue reference="2gh-jL-v9X"/>
+        <segue reference="QCM-P9-tDZ"/>
+        <segue reference="c43-7B-Qgm"/>
     </inferredMetricsTieBreakers>
 </document>
