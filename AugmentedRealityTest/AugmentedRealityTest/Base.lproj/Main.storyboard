@@ -98,18 +98,11 @@
                                                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="249" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hvS-Wy-StZ">
-                                                                <rect key="frame" x="0.0" y="20.5" width="83" height="30.5"/>
+                                                                <rect key="frame" x="0.0" y="20.5" width="83" height="60.5"/>
                                                                 <gestureRecognizers/>
                                                                 <state key="normal" title="Find Players"/>
                                                                 <connections>
                                                                     <segue destination="38N-lN-Sdj" kind="show" id="gwT-4y-hQR"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UI4-eb-tYA">
-                                                                <rect key="frame" x="0.0" y="51" width="99" height="30"/>
-                                                                <state key="normal" title="upload picture"/>
-                                                                <connections>
-                                                                    <action selector="uploadButTest:" destination="eli-Q5-eQw" eventType="touchUpInside" id="ift-Xp-qm1"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -164,6 +157,9 @@
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                 <state key="normal" title="Image Gallery" backgroundImage="LeftMenuButton"/>
+                                                <connections>
+                                                    <action selector="imageGalleryButtonAction:" destination="eli-Q5-eQw" eventType="touchUpInside" id="sog-GP-RrH"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="252" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="characterWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fOy-1H-epf">
                                                 <rect key="frame" x="75" y="176" width="300" height="27"/>
@@ -173,7 +169,7 @@
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
                                                 <inset key="imageEdgeInsets" minX="2" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="Add to Libary" backgroundImage="LeftMenuButton">
-                                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="save3DObject:" destination="NIc-r4-Q6H" eventType="touchUpInside" id="Ybf-fU-Smc"/>
@@ -225,7 +221,6 @@
                     <connections>
                         <outlet property="arscnView" destination="hvw-DB-KR8" id="hYR-zu-G1N"/>
                         <outlet property="imageView" destination="A0a-qp-wyu" id="ehC-dW-dA2"/>
-                        <outlet property="uploadButton" destination="UI4-eb-tYA" id="OLF-MF-SM2"/>
                         <outlet property="userNameLabel" destination="Amo-Cw-29f" id="ThQ-YH-9cd"/>
                     </connections>
                 </viewController>
@@ -710,7 +705,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="E3n-cU-qqs"/>
-        <segue reference="QCM-P9-tDZ"/>
+        <segue reference="V49-sx-n9M"/>
         <segue reference="c43-7B-Qgm"/>
     </inferredMetricsTieBreakers>
 </document>

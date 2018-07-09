@@ -12,7 +12,7 @@ import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
-    
+    var appDelegate : AppDelegate?
     @IBOutlet weak var arscnView: ARSCNView!
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -101,7 +101,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 }
 extension LoginViewController : ARSCNViewDelegate{
     public func setARSCNView(SceneView : ARSCNView){
-        self.arscnView = SceneView
+        self.arscnView = appDelegate?.arscnView
     }
     
 }

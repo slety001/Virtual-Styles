@@ -201,6 +201,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vqE-Ok-ATB"/>
                     </view>
+                    <connections>
+                        <outlet property="arscnView" destination="UxO-m8-ljH" id="8Xh-9Y-Vl5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k4c-FD-7rn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -319,6 +322,7 @@
                         <viewLayoutGuide key="safeArea" id="fNQ-fi-g53"/>
                     </view>
                     <connections>
+                        <outlet property="arscnView" destination="cq1-7S-vQh" id="ZQ2-b9-Etx"/>
                         <outlet property="emailField" destination="ytw-D9-ShS" id="0Yu-Tn-EkS"/>
                         <outlet property="passwordField" destination="iQC-dy-mAG" id="mhl-vy-k0A"/>
                         <outlet property="userNameTextField" destination="AgX-rE-mH8" id="LbW-m4-enb"/>
@@ -327,7 +331,8 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QVg-la-1qN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <swipeGestureRecognizer direction="right" id="JPg-JC-onz">
                     <connections>
-                        <segue destination="AIK-x4-RJS" kind="show" id="TYm-s4-nOL"/>
+                        <outlet property="delegate" destination="cq1-7S-vQh" id="GDb-1r-XH7"/>
+                        <segue destination="AIK-x4-RJS" kind="show" id="wvq-ic-Wkn"/>
                     </connections>
                 </swipeGestureRecognizer>
             </objects>
@@ -338,8 +343,8 @@
         <image name="CenterMenuButton" width="300" height="39"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yxx-ir-tN4"/>
-        <segue reference="TYm-s4-nOL"/>
+        <segue reference="1ur-3i-U28"/>
+        <segue reference="wvq-ic-Wkn"/>
         <segue reference="nCW-IK-o9s"/>
     </inferredMetricsTieBreakers>
 </document>

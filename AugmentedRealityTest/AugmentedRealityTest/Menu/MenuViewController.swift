@@ -13,6 +13,16 @@ import CoreData
 
 class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBAction func imageGalleryButtonAction(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
+        
+    }
+    var appDelegate : AppDelegate?
     @IBOutlet weak var arscnView: ARSCNView!
     
     @IBOutlet weak var imageView: UIImageView!

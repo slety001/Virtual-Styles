@@ -9,20 +9,30 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import ARKit
 import CoreData
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
-    
+    var appDelegate : AppDelegate?
+    @IBOutlet weak var arscnView: ARSCNView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.arscnView?.delegate = self
+        
         userNameTextField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let configuration = ARWorldTrackingConfiguration()
+        // Run the view's session
+        arscnView?.session.run(configuration)
+        self.setARSCNView(SceneView: arscnView!)
     }
 
     @IBAction func signUpPush(_ sender: UIButton) {
@@ -116,4 +126,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
+
+}
+extension SignupViewController : ARSCNViewDelegate{
+    public func setARSCNView(SceneView : ARSCNView){
+        self.arscnView = SceneView
+    }
+    
 }

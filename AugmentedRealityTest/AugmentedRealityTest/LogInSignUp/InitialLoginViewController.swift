@@ -10,12 +10,22 @@ import UIKit
 import ARKit
 import FirebaseAuth
 
-class InitialLoginViewController: UIViewController , ARSCNViewDelegate{
+class InitialLoginViewController: UIViewController{
+    var appDelegate : AppDelegate?
     
+    @IBOutlet weak var arscnView: ARSCNView!
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let configuration = ARWorldTrackingConfiguration()
+        // Run the view's session
+        arscnView?.session.run(configuration)
+        self.setARSCNView(SceneView: arscnView!)
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.arscnView.delegate = self
         
         // Do any additional setup after loading the view.
     }
@@ -35,4 +45,10 @@ class InitialLoginViewController: UIViewController , ARSCNViewDelegate{
     }
     */
 
+}
+extension InitialLoginViewController : ARSCNViewDelegate{
+    public func setARSCNView(SceneView : ARSCNView){
+        self.arscnView = SceneView
+    }
+    
 }

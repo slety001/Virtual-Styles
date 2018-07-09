@@ -67,11 +67,13 @@ class WorldViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         viewModeARSCN.delegate = self
         // Do any additional setup after loading the view.
+        self.viewModeARSCN.scene = mainScene
         
         addModel(path: "art.scnassets/Hats/SantaHat/hatSantaHat.scn")
         let image = UIImage(named: "BubbleCollection/thinkBubble")
         addBubble(image: image!, text: "Bananarama")
         addPet(path: "art.scnassets/Pets/Deer/petDeer.scn")
+        
         viewModeARSCN.autoenablesDefaultLighting = true
         
     }
@@ -96,7 +98,8 @@ class WorldViewController: UIViewController, ARSCNViewDelegate {
         
         // Create a session configuration
         let configuration = ARWorldTrackingConfiguration()
-        
+        configuration.planeDetection = [.horizontal]
+
         // Run the view's session
         viewModeARSCN.session.run(configuration)
         
