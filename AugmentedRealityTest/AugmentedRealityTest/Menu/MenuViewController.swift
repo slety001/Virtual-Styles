@@ -55,10 +55,7 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.arscnView?.delegate = self
         // Create a session configuration
         imageView.layer.cornerRadius = 30
-        DataBaseHelper.shareInstance.fetchUser()
-        
-        print(DataBaseHelper.shareInstance.getName())
-        
+        DataBaseHelper.shareInstance.fetchUser()        
         
         let activityIndicator = UIActivityIndicatorView()
         view.addSubview(activityIndicator)
