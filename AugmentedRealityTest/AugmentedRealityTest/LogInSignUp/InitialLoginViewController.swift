@@ -13,13 +13,16 @@ import FirebaseAuth
 class InitialLoginViewController: UIViewController{
     var appDelegate : AppDelegate?
     
-    @IBAction func testThis(_ sender: UIButton) {
-        DataBaseHelper.shareInstance.fetchUser()
-        print(DataBaseHelper.shareInstance.getName())
-        //DataBaseHelper.shareInstance.fetchBubble()
-        //DataBaseHelper.shareInstance.fetchHat()
-        //DataBaseHelper.shareInstance.fetchPet()
+    @IBOutlet weak var arscnView: ARSCNView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let configuration = ARWorldTrackingConfiguration()
+        // Run the view's session
+        arscnView?.session.run(configuration)
+        self.setARSCNView(SceneView: arscnView!)
     }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.arscnView.delegate = self
