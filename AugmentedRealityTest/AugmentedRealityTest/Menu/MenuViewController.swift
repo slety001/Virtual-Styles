@@ -22,6 +22,7 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func signOutUser(_ sender: UIButton) {
         if Auth.auth().currentUser != nil {
             do {
+                
                 try Auth.auth().signOut()
                 print("user signed out")
                 let storyboard = UIStoryboard(name: "Login", bundle: .main)
@@ -44,7 +45,9 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.arscnView?.delegate = self
         // Create a session configuration
         imageView.layer.cornerRadius = 30
+        DataBaseHelper.shareInstance.fetchUser()
         
+        print(DataBaseHelper.shareInstance.getName())
         
         
         let activityIndicator = UIActivityIndicatorView()

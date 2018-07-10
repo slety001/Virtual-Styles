@@ -26,7 +26,6 @@
 		96025CD120E8385B00E6DBAA /* InitialLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96025CD020E8385B00E6DBAA /* InitialLoginViewController.swift */; };
 		96025CD720E846DA00E6DBAA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96025CD620E846DA00E6DBAA /* LoginViewController.swift */; };
 		96025CD920E846F000E6DBAA /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96025CD820E846F000E6DBAA /* SignupViewController.swift */; };
-		961DDA6720F16A6B00DAC10C /* ARObjectManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DDA6620F16A6B00DAC10C /* ARObjectManaging.swift */; };
 		961DDA6C20F21AFA00DAC10C /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 961DDA6A20F21AFA00DAC10C /* DataModel.xcdatamodeld */; };
 		961DDA7620F2425900DAC10C /* PetData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DDA6E20F2425900DAC10C /* PetData+CoreDataClass.swift */; };
 		961DDA7720F2425900DAC10C /* PetData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961DDA6F20F2425900DAC10C /* PetData+CoreDataProperties.swift */; };
@@ -40,6 +39,7 @@
 		966B4FAE20DDB0860020E3D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 966B4FAD20DDB0860020E3D7 /* GoogleService-Info.plist */; };
 		966B4FAF20DDB0860020E3D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 966B4FAD20DDB0860020E3D7 /* GoogleService-Info.plist */; };
 		966B4FB020DDB0860020E3D7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 966B4FAD20DDB0860020E3D7 /* GoogleService-Info.plist */; };
+		96C94D1F20F477E100074875 /* DataBasePlayGround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C94D1E20F477E100074875 /* DataBasePlayGround.swift */; };
 		D97B605CA3A66DFBEFC12C29 /* Pods_AugmentedRealityTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 25BF81353661DCE6AA173DD0 /* Pods_AugmentedRealityTest.framework */; };
 		FA01B67E20DFCAC0005353B0 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA01B67D20DFCAC0005353B0 /* CustomCell.swift */; };
 		FA51003120C99F5D001CEC58 /* WorldFaceTracking.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA51003020C99F5D001CEC58 /* WorldFaceTracking.swift */; };
@@ -95,7 +95,6 @@
 		96025CD020E8385B00E6DBAA /* InitialLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialLoginViewController.swift; sourceTree = "<group>"; };
 		96025CD620E846DA00E6DBAA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		96025CD820E846F000E6DBAA /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
-		961DDA6620F16A6B00DAC10C /* ARObjectManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARObjectManaging.swift; sourceTree = "<group>"; };
 		961DDA6B20F21AFA00DAC10C /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		961DDA6E20F2425900DAC10C /* PetData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		961DDA6F20F2425900DAC10C /* PetData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PetData+CoreDataProperties.swift"; sourceTree = "<group>"; };
@@ -107,6 +106,7 @@
 		964D89EF20F3623D0084DDFF /* HatData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HatData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		964D89F020F3623D0084DDFF /* HatData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HatData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		966B4FAD20DDB0860020E3D7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = SOURCE_ROOT; };
+		96C94D1E20F477E100074875 /* DataBasePlayGround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataBasePlayGround.swift; sourceTree = "<group>"; };
 		9D3C7A4C3116CF6F36B88BB3 /* Pods-AugmentedRealityTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AugmentedRealityTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-AugmentedRealityTest/Pods-AugmentedRealityTest.release.xcconfig"; sourceTree = "<group>"; };
 		A4E0B9AD4724EF4EB010E266 /* Pods_AugmentedRealityTestUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugmentedRealityTestUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1191C4E008DD945A0F3D1A /* Pods_AugmentedRealityTestTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AugmentedRealityTestTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -237,7 +237,6 @@
 			children = (
 				01C1258720E6667E005B6F0B /* User.swift */,
 				96025CC920E7CE0500E6DBAA /* Profile.swift */,
-				961DDA6620F16A6B00DAC10C /* ARObjectManaging.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -274,6 +273,7 @@
 				961DDA7220F2425900DAC10C /* BubbleData+CoreDataClass.swift */,
 				961DDA7320F2425900DAC10C /* BubbleData+CoreDataProperties.swift */,
 				961DDA7F20F2552200DAC10C /* DataBaseHelper.swift */,
+				96C94D1E20F477E100074875 /* DataBasePlayGround.swift */,
 			);
 			path = PersistenceData;
 			sourceTree = "<group>";
@@ -535,7 +535,6 @@
 				961DDA8020F2552200DAC10C /* DataBaseHelper.swift in Sources */,
 				01B9990820BEB93100FA5E1D /* WorldViewController.swift in Sources */,
 				FA59CEBF20ECD8C700371C20 /* FileSharingViewController.swift in Sources */,
-				961DDA6720F16A6B00DAC10C /* ARObjectManaging.swift in Sources */,
 				961DDA7A20F2425900DAC10C /* BubbleData+CoreDataClass.swift in Sources */,
 				96025CD920E846F000E6DBAA /* SignupViewController.swift in Sources */,
 				FA59CEBD20ECD87600371C20 /* ConnectionsViewController.swift in Sources */,
@@ -555,6 +554,7 @@
 				961DDA7920F2425900DAC10C /* UserData+CoreDataProperties.swift in Sources */,
 				961DDA7B20F2425900DAC10C /* BubbleData+CoreDataProperties.swift in Sources */,
 				FA59CEC120ECD8E500371C20 /* ChatBoxViewController.swift in Sources */,
+				96C94D1F20F477E100074875 /* DataBasePlayGround.swift in Sources */,
 				01C1258C20E690B6005B6F0B /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -727,11 +727,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QHG2LK44YJ;
+				DEVELOPMENT_TEAM = VM3Q36XX2Q;
 				INFOPLIST_FILE = AugmentedRealityTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AugmentedRealityTest;
+				PRODUCT_BUNDLE_IDENTIFIER = sl.AugmentedRealityTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -744,11 +744,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = QHG2LK44YJ;
+				DEVELOPMENT_TEAM = VM3Q36XX2Q;
 				INFOPLIST_FILE = AugmentedRealityTest/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = AugmentedRealityTest;
+				PRODUCT_BUNDLE_IDENTIFIER = sl.AugmentedRealityTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

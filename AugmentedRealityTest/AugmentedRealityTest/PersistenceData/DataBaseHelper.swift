@@ -11,7 +11,10 @@ import UIKit
 import CoreData
 
 class DataBaseHelper{
+    
+    //Singlton for atomic use
     static var shareInstance = DataBaseHelper()
+    private init(){}
     
     let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
@@ -26,7 +29,7 @@ class DataBaseHelper{
             try context?.save()
             print("save User success")
         } catch let error{
-            print("saveUser error \(error.localizedDescription)")
+            print("save User error \(error.localizedDescription)")
         }
     }
         
@@ -38,7 +41,7 @@ class DataBaseHelper{
             try context?.save()
             print("save Pet success")
         } catch let error{
-            print("saveUser error \(error.localizedDescription)")
+            print("save Pet error \(error.localizedDescription)")
         }
     }
         
@@ -48,9 +51,9 @@ class DataBaseHelper{
         hatData.url = object["url"]
         do{
             try context?.save()
-            print("save Pet success")
+            print("save Hat success")
         } catch let error{
-            print("saveUser error \(error.localizedDescription)")
+            print("save Hat error \(error.localizedDescription)")
         }
     }
     
@@ -60,15 +63,36 @@ class DataBaseHelper{
         bubbleData.url = object["url"]
         do{
             try context?.save()
-            print("save Pet success")
+            print("save Bubble success")
         } catch let error{
-            print("saveUser error \(error.localizedDescription)")
+            print("save Bubble error \(error.localizedDescription)")
         }
     }
     
-    func fetch() {
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PetData")
-        var outputStr = ""
+    func fetchUser() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+        do {
+            let result = try context?.fetch(request)
+            if (result?.count)! > 0 {
+                for line in result! as! [NSManagedObject]{
+                    let uid = (line as AnyObject).value(forKey: "uid") as! String
+                    let name = (line as AnyObject).value(forKey: "name") as! String
+                    let password = line.value(forKey: "password") as! String
+                    let email = line.value(forKeyPath: "email") as! String
+                    
+                    print(name, uid, email as Any, password)
+                }
+            } else {
+                print("Empty")
+            }
+        } catch {
+            print("fetch User error \(error.localizedDescription)")
+        }
+    }
+    
+    func fetchBubble() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "BubbleData")
+        
         do {
             let result = try context?.fetch(request)
             if (result?.count)! > 0 {
@@ -76,15 +100,97 @@ class DataBaseHelper{
                     let uid = (line as AnyObject).value(forKey: "uid") as! String
                     let url = (line as AnyObject).value(forKey: "url") as! String
                     
-                    print(outputStr += uid + " " + url + " " + "\n")
+                    print(uid, url)
                 }
             } else {
                 print("Empty")
             }
         } catch {
-            print(error)
+            print("fetch User error \(error.localizedDescription)")
         }
     }
+    
+    func fetchPet() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "PetData")
         
+        do {
+            let result = try context?.fetch(request)
+            if (result?.count)! > 0 {
+                for line in result! {
+                    let uid = (line as AnyObject).value(forKey: "uid") as! String
+                    let url = (line as AnyObject).value(forKey: "url") as! String
+                    
+                    print(uid, url)
+                }
+            } else {
+                print("Empty")
+            }
+        } catch {
+            print("fetch User error \(error.localizedDescription)")
+        }
+    }
+    
+    func fetchHat() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "HatData")
+        
+        do {
+            let result = try context?.fetch(request)
+            if (result?.count)! > 0 {
+                for line in result! {
+                    let uid = (line as AnyObject).value(forKey: "uid") as! String
+                    let url = (line as AnyObject).value(forKey: "url") as! String
+                    
+                    print(uid, url)
+                }
+            } else {
+                print("Empty")
+            }
+        } catch {
+            print("fetch User error \(error.localizedDescription)")
+        }
+    }
+    
+    func updateProfileUrl(url:String) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>.init(entityName: "UserData")
+        do{
+            let result = try context?.fetch(fetchRequest)
+            if (result?.count)! > 0{
+                let userData = result![0] as! NSManagedObject
+                userData.setValue(url, forKey: "profileUrl")
+                do{
+                    try context?.save()
+                    print("update profileUrl success")
+                } catch let error{
+                    print("some error \(error.localizedDescription)")
+                }
+            } else {
+                print("No update")
+            }
+        } catch {
+            print("update fetch User error \(error.localizedDescription)")
+        }
+    }
+    
+    func fetchUserName() {
+        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "UserData")
+        do {
+            let result = try context?.fetch(request)
+            if (result?.count)! > 0 {
+                for line in result! as! [NSManagedObject]{
+                    let uid = (line as AnyObject).value(forKey: "uid") as! String
+                    let name = (line as AnyObject).value(forKey: "name") as! String
+                    let password = line.value(forKey: "password") as! String
+                    let email = line.value(forKeyPath: "email") as! String
+                    print(name, uid, email as Any, password)
+                    
+                }
+            } else {
+                print("Empty")
+            }
+        } catch {
+            print("fetch User error \(error.localizedDescription)")
+        }
+    }
+    
 }
 

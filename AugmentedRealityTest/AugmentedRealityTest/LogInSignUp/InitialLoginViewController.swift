@@ -11,6 +11,13 @@ import FirebaseAuth
 
 class InitialLoginViewController: UIViewController {
     
+    @IBAction func testThis(_ sender: UIButton) {
+        DataBaseHelper.shareInstance.fetchUser()
+        print(DataBaseHelper.shareInstance.getName())
+        //DataBaseHelper.shareInstance.fetchBubble()
+        //DataBaseHelper.shareInstance.fetchHat()
+        //DataBaseHelper.shareInstance.fetchPet()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
