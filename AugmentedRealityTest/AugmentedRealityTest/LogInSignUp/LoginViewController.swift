@@ -7,21 +7,48 @@
 //
 
 import UIKit
+import ARKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
-    
+    var appDelegate : AppDelegate?
+    @IBOutlet weak var arscnView: ARSCNView!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.arscnView?.delegate = self
+        
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        
+        let text = SCNText(string: " almost there :)", extrusionDepth: 2)
+        
+        // creates material object, sets color, assigns material to text
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.green
+        text.materials = [material]
+        
+        // creates node, sets position, scales size of text, sets textgeometry to node
+        let node = SCNNode()
+        node.position = SCNVector3(x: -10, y:0.5, z: -5)
+        node.scale = SCNVector3(x: 0.1, y: 0.1, z: 0.1)
+        node.geometry = text
+        
+        // adds node to view, enable lighting to display shadows
+        arscnView.scene.rootNode.addChildNode(node)
         // Do any additional setup after loading the view.
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        emailTextField.becomeFirstResponder()
+        let configuration = ARWorldTrackingConfiguration()
+        // Run the view's session
+        arscnView?.session.run(configuration)
+        self.setARSCNView(SceneView: arscnView!)
     }
 
     @IBAction func signinTaped(_ sender: UIButton) {
@@ -68,10 +95,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }    
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        emailTextField.becomeFirstResponder()
-    }
+  
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -89,4 +113,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
+}
+extension LoginViewController : ARSCNViewDelegate{
+    public func setARSCNView(SceneView : ARSCNView){
+        self.arscnView = appDelegate?.arscnView
+    }
+    
 }

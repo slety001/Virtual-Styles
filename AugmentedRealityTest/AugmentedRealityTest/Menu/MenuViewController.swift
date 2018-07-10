@@ -13,6 +13,16 @@ import CoreData
 
 class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    @IBAction func imageGalleryButtonAction(_ sender: Any) {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.allowsEditing = true
+        
+        imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary
+        self.present(imagePicker, animated: true, completion: nil)
+        
+    }
+    var appDelegate : AppDelegate?
     @IBOutlet weak var arscnView: ARSCNView!
     
     @IBOutlet weak var imageView: UIImageView!
@@ -78,7 +88,7 @@ class MenuViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         // creates node, sets position, scales size of text, sets textgeometry to node
         let node = SCNNode()
-        node.position = SCNVector3(x: -7.5, y:1, z: -10)
+        node.position = SCNVector3(x: -7.5, y:1, z: -15)
         node.scale = SCNVector3(x: 0.1, y: 0.1, z: 0.1)
         node.geometry = text
         

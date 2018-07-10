@@ -9,20 +9,45 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import ARKit
 import CoreData
 
 class SignupViewController: UIViewController, UITextFieldDelegate {
-    
+    var appDelegate : AppDelegate?
+    @IBOutlet weak var arscnView: ARSCNView!
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.arscnView?.delegate = self
+        
         userNameTextField.delegate = self
         emailField.delegate = self
         passwordField.delegate = self
+        let text = SCNText(string: " You didn`t sign up for it yet ???", extrusionDepth: 2)
+        
+        // creates material object, sets color, assigns material to text
+        let material = SCNMaterial()
+        material.diffuse.contents = UIColor.green
+        text.materials = [material]
+        
+        // creates node, sets position, scales size of text, sets textgeometry to node
+        let node = SCNNode()
+        node.position = SCNVector3(x: -7.5, y:1, z: -15)
+        node.scale = SCNVector3(x: 0.1, y: 0.1, z: 0.1)
+        node.geometry = text
+        
+        // adds node to view, enable lighting to display shadows
+        arscnView.scene.rootNode.addChildNode(node)
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let configuration = ARWorldTrackingConfiguration()
+        // Run the view's session
+        arscnView?.session.run(configuration)
+        self.setARSCNView(SceneView: arscnView!)
     }
 
     @IBAction func signUpPush(_ sender: UIButton) {
@@ -116,4 +141,11 @@ class SignupViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
+
+}
+extension SignupViewController : ARSCNViewDelegate{
+    public func setARSCNView(SceneView : ARSCNView){
+        self.arscnView = SceneView
+    }
+    
 }

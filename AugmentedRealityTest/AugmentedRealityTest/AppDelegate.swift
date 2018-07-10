@@ -11,6 +11,7 @@ import CoreData
 import Firebase
 import FirebaseAuth
 import MultipeerConnectivity
+import ARKit
 
 
 @UIApplicationMain
@@ -18,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var mcManager : MCManager?
-    
+    var arscnView : ARSCNView?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
